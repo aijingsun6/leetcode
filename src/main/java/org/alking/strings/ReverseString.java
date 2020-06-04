@@ -4,12 +4,14 @@ public class ReverseString {
 
     public void reverseString(char[] s) {
 
-        int length = s.length;
-        char tmp;
-        for (int i = 0; i <= length / 2; i++) {
-            tmp = s[i];
-            s[i] = s[length-1-i];
-            s[length-1-i] = tmp;
+        int head = 0;
+        int tail = s.length -1;
+        while (head < tail){
+            char t = s[head];
+            s[head] = s[tail];
+            s[tail] = t;
+            head += 1;
+            tail -= 1;
         }
 
     }
