@@ -18,4 +18,10 @@ public class ListNodeTest {
         Assert.assertTrue(ln.hasCycle(n1));
 
     }
+
+    @Test
+    public void isPalindromeTest(){
+        ListNode head = ListNode.parseListNode(new int[]{0,0});
+        Assert.assertTrue(head.isPalindrome(head));
+    }
 }

@@ -43,6 +43,24 @@ public class ListNode {
         return result;
     }
 
+    public ListNode reverseList(ListNode head) {
+
+        if (head == null) {
+            // null
+            return null;
+        }
+        ListNode p1 = head;
+        ListNode p2 = null;
+        ListNode t;
+        while (p1 != null) {
+            t = p1.next;
+            p1.next = p2;
+            p2 = p1;
+            p1 = t;
+        }
+        return p2;
+    }
+
     /**
      * https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/46/
      * @param head
@@ -73,5 +91,52 @@ public class ListNode {
                 return false;
             }
         }
+    }
+
+    public boolean isPalindrome(ListNode head) {
+
+        if(head == null){
+            return true;
+        }
+        if(head.next== null){
+            return true;
+        }
+        ListNode fast = head.next;
+        ListNode slow = head;
+
+
+        for(;;){
+            boolean fastEnd = fast.next != null && fast.next.next != null;
+            if(fastEnd){
+                fast = fast.next.next;
+                slow = slow.next;
+            }else {
+                break;
+            }
+        }
+        ListNode r;
+        if(fast.next == null){
+            // 偶数长度
+            ListNode t = slow.next;
+            slow.next = null;
+            r = reverseList(t);
+        }else {
+            // 奇数长度
+            ListNode t = slow.next;
+            r = reverseList(t);
+            t.next = null;
+        }
+        while (head != null && r != null){
+            if(head.val != r.val){
+                return false;
+            }
+            head = head.next;
+            r = r.next;
+        }
+        if(head == null && r == null){
+            return true;
+        }
+        return false;
+
     }
 }
