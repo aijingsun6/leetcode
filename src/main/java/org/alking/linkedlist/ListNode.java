@@ -42,4 +42,36 @@ public class ListNode {
         acc.toArray(result);
         return result;
     }
+
+    /**
+     * https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/46/
+     * @param head
+     * @return
+     */
+    public boolean hasCycle(ListNode head) {
+
+        if(head == null){
+            return false;
+        }
+        if(head.next == null){
+            return false;
+        }
+
+        ListNode fast = head.next;
+        ListNode slow = head;
+
+        while (true){
+            if(fast == slow){
+                return true;
+            }
+            boolean fastEnd = fast.next != null && fast.next.next != null;
+            boolean slowEnd = slow.next != null;
+            if(fastEnd && slowEnd){
+                fast = fast.next.next;
+                slow = slow.next;
+            }else {
+                return false;
+            }
+        }
+    }
 }
