@@ -1,5 +1,8 @@
 package org.alking.tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TreeNode {
 
     int val;
@@ -60,16 +63,58 @@ public class TreeNode {
         }
         boolean leftCheck = true;
         if (root.left != null) {
-            leftCheck =  isValidBST(root.left,root.val,true);
+            leftCheck = isValidBST(root.left, root.val, true);
         }
         boolean rightCheck = true;
-        if (root.right != null ) {
-            rightCheck = isValidBST(root.right,root.val,false);
+        if (root.right != null) {
+            rightCheck = isValidBST(root.right, root.val, false);
         }
-        if(!leftCheck || !rightCheck){
+        if (!leftCheck || !rightCheck) {
             return false;
         }
 
         return isValidBST(root.left) && isValidBST(root.right);
+    }
+
+
+    /**
+     * 中序
+     * @param root
+     * @param acc
+     */
+    private void order(TreeNode root, List<Integer> acc) {
+        if(root.left != null){
+            order(root.left,acc);
+        }else {
+            acc.add(null);
+        }
+        acc.add(root.val);
+        if(root.right != null){
+            order(root.right,acc);
+        }else {
+            acc.add(null);
+        }
+    }
+
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+       return isSymmetric(root.left,root.right);
+    }
+
+    private boolean isSymmetric(TreeNode left,TreeNode right) {
+
+        if(left != null && right != null){
+            if(left.val != right.val){
+                return false;
+            }
+            return isSymmetric(left.left,right.right) && isSymmetric(left.right,right.left);
+        }
+
+        if(left != null || right != null){
+            return false;
+        }
+        return true;
     }
 }
