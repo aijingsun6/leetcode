@@ -1,6 +1,7 @@
 package org.alking.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TreeNode {
@@ -79,42 +80,65 @@ public class TreeNode {
 
     /**
      * 中序
+     *
      * @param root
      * @param acc
      */
     private void order(TreeNode root, List<Integer> acc) {
-        if(root.left != null){
-            order(root.left,acc);
-        }else {
+        if (root.left != null) {
+            order(root.left, acc);
+        } else {
             acc.add(null);
         }
         acc.add(root.val);
-        if(root.right != null){
-            order(root.right,acc);
-        }else {
+        if (root.right != null) {
+            order(root.right, acc);
+        } else {
             acc.add(null);
         }
     }
 
     public boolean isSymmetric(TreeNode root) {
-        if(root == null){
+        if (root == null) {
             return true;
         }
-       return isSymmetric(root.left,root.right);
+        return isSymmetric(root.left, root.right);
     }
 
-    private boolean isSymmetric(TreeNode left,TreeNode right) {
+    private boolean isSymmetric(TreeNode left, TreeNode right) {
 
-        if(left != null && right != null){
-            if(left.val != right.val){
+        if (left != null && right != null) {
+            if (left.val != right.val) {
                 return false;
             }
-            return isSymmetric(left.left,right.right) && isSymmetric(left.right,right.left);
+            return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
         }
 
-        if(left != null || right != null){
+        if (left != null || right != null) {
             return false;
         }
         return true;
+    }
+
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> acc = new ArrayList<>();
+        levelOrder(root, 0, acc);
+        return acc;
+    }
+
+    private void levelOrder(TreeNode root, int level, List<List<Integer>> acc) {
+
+        if (root == null) {
+            return;
+        }
+
+        if (acc.size() < level + 1) {
+            acc.add(new LinkedList<>());
+        }
+
+        acc.get(level).add(root.val);
+        levelOrder(root.left, level + 1, acc);
+        levelOrder(root.right, level + 1, acc);
     }
 }

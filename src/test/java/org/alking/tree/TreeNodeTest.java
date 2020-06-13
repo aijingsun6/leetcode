@@ -5,6 +5,8 @@ import org.junit.Test;
 
 public class TreeNodeTest {
 
+    TreeNode n = new TreeNode(0);
+
     @Test
     public void isValidBSTTest(){
         TreeNode n3 = new TreeNode(3);
@@ -16,10 +18,15 @@ public class TreeNodeTest {
         n30.left = n10;
         n10.right = n15;
         n15.right = n45;
-        TreeNode n0 = new TreeNode(0);
-        Assert.assertFalse(n0.isValidBST(n3));
+        Assert.assertFalse(n.isValidBST(n3));
 
     }
 
+
+    @Test
+    public void levelOrderTest(){
+
+
+    }
 
 }
