@@ -29,4 +29,23 @@ public class TreeNodeTest {
 
     }
 
+
+    @Test
+    public void sortedArrayToBSTTest(){
+        int[] arr = {1,2,3};
+        TreeNode root = n.sortedArrayToBST(arr);
+        Assert.assertEquals(2,root.val);
+        Assert.assertEquals(1,root.left.val);
+        Assert.assertEquals(3,root.right.val);
+
+        arr = new int[]{1,2,3,4,5};
+        root = n.sortedArrayToBST(arr);
+        Assert.assertEquals(3,root.val);
+        Assert.assertEquals(1,root.left.val);
+        Assert.assertEquals(2,root.left.right.val);
+
+        Assert.assertEquals(4,root.right.val);
+        Assert.assertEquals(5,root.right.right.val);
+
+    }
 }

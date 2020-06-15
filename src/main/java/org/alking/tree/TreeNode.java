@@ -141,4 +141,29 @@ public class TreeNode {
         levelOrder(root.left, level + 1, acc);
         levelOrder(root.right, level + 1, acc);
     }
+
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return sortedArrayToBST(nums, 0, nums.length - 1);
+    }
+
+    private TreeNode sortedArrayToBST(int[] nums, int start, int end) {
+
+        if (nums == null) {
+            return null;
+        }
+        if (start > end) {
+            return null;
+        }
+
+        if (start == end) {
+            // 1 element
+            return new TreeNode(nums[start]);
+        }
+        // start < end
+        int mid = (end + start) / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = sortedArrayToBST(nums, start, mid - 1);
+        root.right = sortedArrayToBST(nums, mid + 1, end);
+        return root;
+    }
 }
