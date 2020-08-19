@@ -18,27 +18,23 @@ public class P647 {
     }
 
     private int findMax(char[] arr, int idx) {
-        return findMax(arr, idx, 0, 0) + findMax(arr, idx, 0, 1);
+        return findMax(arr, idx, idx) + findMax(arr, idx, idx + 1);
     }
 
-    private int findMax(char[] arr, int idx, int left, int right) {
+    private int findMax(char[] arr, int left, int right) {
         int result = 0;
-        int idxLeft;
-        int idxRight;
         while (true) {
-            idxLeft = idx - left;
-            idxRight = idx + right;
-            if (idxLeft < 0) {
+            if (left < 0) {
                 break;
             }
-            if (idxRight >= arr.length) {
+            if (right >= arr.length) {
                 break;
             }
-            if (arr[idxLeft] != arr[idxRight]) {
+            if (arr[left] != arr[right]) {
                 break;
             }
             result += 1;
-            left++;
+            left--;
             right++;
         }
         return result;
