@@ -1,4 +1,4 @@
-package org.alking;
+package org.alking.p1200;
 
 /**
  * https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer/

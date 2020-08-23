@@ -1,6 +1,5 @@
 package org.alking.p1200;
 
-import org.alking.P1290;
 import org.junit.Assert;
 import org.junit.Test;
 
