@@ -1,53 +1,47 @@
 package org.alking.p400;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class P459 {
 
     public boolean repeatedSubstringPattern(String s) {
-
-        if(s == null || s.length() == 0){
+        if (s == null || s.length() == 0) {
             return false;
         }
-
-        List<Integer> nums = findNum(s.length());
-
-        for(Integer n: nums){
-
-            String sub = s.substring(0, n);
-
-            String s2 = s.replace(sub,"");
-
-            if(s2.isEmpty()){
-                return true;
+        int size = s.length();
+        if (size == 1) {
+            return false;
+        }
+        int mod = 0;
+        int repeat = 0;
+        String firstS = "";
+        String tmpS = "";
+        int start = 0;
+        int end = 0;
+        boolean match = false;
+        int loopEnd = size/2;
+        for (int i = 1; i <= loopEnd; i++) {
+            mod = size % i;
+            if (mod == 0) {
+                repeat = size / i;
+                if(repeat < 2){
+                    break;
+                }
+                firstS = s.substring(0, i);
+                match = true;
+                for (int j = 1; j < repeat; j++) {
+                    start = i * j;
+                    end = start + i;
+                    tmpS = s.substring(start,end);
+                    if(!tmpS.equals(firstS)){
+                        match = false;
+                        break;
+                    }
+                }
+                if(match){
+                    return match;
+                }
             }
-
         }
         return false;
-
-
-    }
-
-
-    private List<Integer> findNum(int s) {
-
-       List<Integer> acc = new ArrayList<>();
-        int start = 1;
-        int end = s;
-        int end2 = 0;
-        while (start <= end) {
-            if (s % start == 0) {
-                end2 = s / start;
-                if(end2 > 1){
-                    acc.add(start);
-                    acc.add(end2);
-                    end = end2;
-                }
-
-            }
-            start += 1;
-        }
-        return acc;
     }
 }

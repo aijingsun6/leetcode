@@ -9,5 +9,8 @@ public class P459Test {
     public void test(){
         P459 p459 = new P459();
         Assert.assertTrue(p459.repeatedSubstringPattern("abab"));
+        Assert.assertFalse(p459.repeatedSubstringPattern("aba"));
+        Assert.assertTrue(p459.repeatedSubstringPattern("abcabc"));
+        Assert.assertTrue(p459.repeatedSubstringPattern("abacababacab"));
     }
 }
