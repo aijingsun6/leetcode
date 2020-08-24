@@ -11,14 +11,9 @@ public class P459 {
         if (size == 1) {
             return false;
         }
-        int mod = 0;
-        int repeat = 0;
-        String firstS = "";
-        String tmpS = "";
-        int start = 0;
-        int end = 0;
-        boolean match = false;
-        int loopEnd = size / 2;
+        int mod;
+        int repeat;
+        int loopEnd = size;
         for (int i = 1; i <= loopEnd; i++) {
             mod = size % i;
             if (mod == 0) {
@@ -26,23 +21,38 @@ public class P459 {
                 if (repeat < 2) {
                     break;
                 }
-                firstS = s.substring(0, i);
-                match = true;
-                start = 0;
-                for (int j = 1; j < repeat; j++) {
-                    start = start + i;
-                    end = start + i;
-                    tmpS = s.substring(start, end);
-                    if (!tmpS.equals(firstS)) {
-                        match = false;
-                        break;
-                    }
+                if (repeat < loopEnd) {
+                    loopEnd = repeat;
                 }
-                if (match) {
+                if (checkString(s, i, repeat)) {
                     return true;
                 }
+                if (checkString(s, repeat, i)) {
+                    return true;
+                }
+
             }
         }
         return false;
+    }
+
+    private boolean checkString(final String str, final int per, final int repeat) {
+
+        if (repeat < 2) {
+            return false;
+        }
+        final String first = str.substring(0, per);
+        int start = 0;
+        int end;
+        String tmpS;
+        for (int j = 1; j < repeat; j++) {
+            start = start + per;
+            end = start + per;
+            tmpS = str.substring(start, end);
+            if (!tmpS.equals(first)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
