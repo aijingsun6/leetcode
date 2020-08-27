@@ -108,6 +108,7 @@ public class P332Test {
         );
         P332 p332 = new P332();
         List<String> result = p332.findItinerary(tickets);
-        Assert.assertEquals(1, result.size());
+        Assert.assertEquals(11, result.size());
+        Assert.assertEquals("ANU",result.get(1));
     }
 }
