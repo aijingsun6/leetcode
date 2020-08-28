@@ -5,13 +5,20 @@ package org.alking.p600;
  */
 public class P657 {
 
+    private static final int[] cache = new int['U' + 1];
+
     public boolean judgeCircle(String moves) {
-        int[] arr = new int['A' + 26];
+        cache['U'] = 0;
+        cache['D'] = 0;
+        cache['L'] = 0;
+        cache['R'] = 0;
+
         for (char c : moves.toCharArray()) {
-            arr[c] += 1;
+            cache[c] += 1;
         }
-        return arr['U'] == arr['D'] && arr['L'] == arr['R'];
+        return cache['U'] == cache['D'] && cache['L'] == cache['R'];
     }
+
 
 //    public boolean judgeCircle(String moves) {
 //
