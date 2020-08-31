@@ -1,7 +1,6 @@
 package org.alking.p800;
 
 import java.util.ArrayDeque;
-import java.util.HashSet;
 import java.util.List;
 
 public class P841 {
@@ -17,22 +16,25 @@ public class P841 {
         }
 
         ArrayDeque<Integer> queue = new ArrayDeque<>();
-        HashSet<Integer> visit = new HashSet<>();
-        visit.add(0);
+        boolean[] visit = new boolean[rooms.size()];
+        visit[0] = true;
         queue.addLast(0);
-
+        int sum = 1;
         while (!queue.isEmpty()) {
             Integer first = queue.removeFirst();
             for (Integer r : rooms.get(first)) {
-
-                if (!visit.contains(r)) {
-                    visit.add(r);
+                if (!visit[r]) {
+                    sum += 1;
+                    visit[r] = true;
                     queue.addLast(r);
                 }
             }
         }
 
-        return visit.size() >= rooms.size();
+
+        return sum >= rooms.size();
 
     }
+
+
 }
