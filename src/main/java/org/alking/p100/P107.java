@@ -14,6 +14,37 @@ public class P107 {
         }
     }
 
+    public List<List<Integer>> levelOrderBottom2(TreeNode root) {
+
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        ArrayList<TreeNode> queue = new ArrayList<>();
+        queue.add(root);
+        List<Integer> list;
+        List<TreeNode> nodes;
+        while (!queue.isEmpty()) {
+
+            list = new ArrayList<>();
+            nodes = new ArrayList<>();
+            for(TreeNode n: queue){
+                list.add(n.val);
+                if (n.left != null) {
+                    nodes.add(n.left);
+                }
+                if (n.right != null) {
+                    nodes.add(n.right);
+                }
+            }
+            result.add(list);
+            queue.clear();
+            queue.addAll(nodes);
+        }
+        Collections.reverse(result);
+        return result;
+    }
+
 
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
 
@@ -31,8 +62,8 @@ public class P107 {
         levelOrderBottom(acc, root, 1);
 
         ArrayList<List<Integer>> result = new ArrayList<>();
-        for(Map.Entry<Integer,List<Integer>> entry: acc.entrySet()){
-            result.add( entry.getValue());
+        for (Map.Entry<Integer, List<Integer>> entry : acc.entrySet()) {
+            result.add(entry.getValue());
         }
         return result;
     }
