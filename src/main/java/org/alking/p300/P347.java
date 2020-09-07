@@ -7,44 +7,34 @@ public class P347 {
     public int[] topKFrequent(int[] nums, int k) {
 
         HashMap<Integer, Integer> counterMap = new HashMap<>();
-        TreeMap<Integer, Set<Integer>> sortMap = new TreeMap<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-        });
-
         for (int v : nums) {
-            int c = counterMap.getOrDefault(v, 0);
-            int c2 = c + 1;
-
-            counterMap.put(v, c2);
-
-            // remove old
-            Set<Integer> s = sortMap.getOrDefault(c, new HashSet<>());
-            s.remove(v);
-            sortMap.put(c, s);
-
-            // append new
-            Set<Integer> s2 = sortMap.getOrDefault(c2, new HashSet<>());
-            s2.add(v);
-            sortMap.put(c2, s2);
+            counterMap.put(v, counterMap.getOrDefault(v, 0) + 1);
         }
 
-
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o1.getValue() - o2.getValue();
+            }
+        });
         int size = counterMap.size();
         size = Math.min(size, k);
-        int[] result = new int[size];
-        int idx = 0;
-        for (Map.Entry<Integer, Set<Integer>> entry : sortMap.entrySet()) {
-            if (idx < size) {
-                for (Integer v : entry.getValue()) {
-                    result[idx] = v;
-                    idx += 1;
+
+        for (Map.Entry<Integer, Integer> entry : counterMap.entrySet()) {
+
+            if (queue.size() < k) {
+                queue.offer(entry);
+            } else {
+                Map.Entry<Integer, Integer> old = queue.peek();
+                if (entry.getValue() > old.getValue()) {
+                    queue.poll();
+                    queue.offer(entry);
                 }
-            }else {
-                break;
             }
+        }
+        int[] result = new int[size];
+        for (int idx = size - 1; idx >= 0; idx--) {
+            result[idx] = queue.poll().getKey();
         }
         return result;
     }
