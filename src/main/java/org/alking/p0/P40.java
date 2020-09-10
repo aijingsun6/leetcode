@@ -11,13 +11,13 @@ public class P40 {
             return Collections.emptyList();
         }
         Arrays.sort(candidates);
-        Set<List<Integer>> acc = new HashSet<>();
+        List<List<Integer>> acc = new ArrayList<>();
         ArrayDeque<Integer> queue = new ArrayDeque<>();
         dfs(candidates, target, 0, queue, acc);
-        return new ArrayList<>(acc);
+        return acc;
     }
 
-    private void dfs(int[] candidates, int target, int from, ArrayDeque<Integer> queue, Set<List<Integer>> acc) {
+    private void dfs(int[] candidates, int target, int from, ArrayDeque<Integer> queue, List<List<Integer>> acc) {
 
         if (target < 0) {
             return;
@@ -29,16 +29,12 @@ public class P40 {
         if (from >= candidates.length) {
             return;
         }
-        if (from > 0 && candidates[from] == candidates[from - 1]) {
-            int v = candidates[from];
-            queue.addLast(v);
-            dfs(candidates, target - v, from + 1, queue, acc);
-            queue.removeLast();
-            return;
-        }
         // target > 0
         for (int idx = from; idx < candidates.length; idx++) {
             int v = candidates[idx];
+            if (idx > from && candidates[idx - 1] == v) {
+                continue;
+            }
             queue.addLast(v);
             dfs(candidates, target - v, idx + 1, queue, acc);
             queue.removeLast();
