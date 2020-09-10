@@ -29,6 +29,13 @@ public class P40 {
         if (from >= candidates.length) {
             return;
         }
+        if (from > 0 && candidates[from] == candidates[from - 1]) {
+            int v = candidates[from];
+            queue.addLast(v);
+            dfs(candidates, target - v, from + 1, queue, acc);
+            queue.removeLast();
+            return;
+        }
         // target > 0
         for (int idx = from; idx < candidates.length; idx++) {
             int v = candidates[idx];
