@@ -4,38 +4,20 @@ public class P922 {
 
     public int[] sortArrayByParityII(int[] A) {
 
-        boolean odd = false;
-
-
-        for (int i = 0; i < A.length; i++) {
-
-
-            if (odd && A[i] % 2 == 0) {
-                int idx = i + 1;
-                while (A[idx] % 2 == 0) {
-                    idx += 1;
-                }
-                swap(A, i, idx);
+        int[] result = new int[A.length];
+        int oddIdx = 1;
+        int evenIdx = 0;
+        for(int v: A){
+            if(v %2 == 0){
+                result[evenIdx] = v;
+                evenIdx += 2;
+            }else {
+                result[oddIdx] = v;
+                oddIdx += 2;
             }
-
-            if (!odd && A[i] % 2 > 0) {
-                int idx = i + 1;
-                while (A[idx] % 2 > 0) {
-                    idx += 1;
-                }
-                swap(A, i, idx);
-            }
-            odd = !odd;
-
-
         }
-        return A;
+        return result;
 
     }
 
-    private void swap(int[] arr, int x, int y) {
-        int t = arr[x];
-        arr[x] = arr[y];
-        arr[y] = t;
-    }
 }
