@@ -1,8 +1,9 @@
 ﻿# algo
 
-### array
-- 566
-- 674
-- 1122
-- 1299
+### table
+| index | type |
+| 566 | array |
+| 674 | array |
+| 1122 | array |
+| 1299 | array |
 
