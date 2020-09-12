@@ -50,3 +50,11 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 1365 | array | easy |[有多少小于当前数字的数字](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/) |
+
+### table(1401-1500)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
+| 1480 | array | easy |[一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
+
+
+
