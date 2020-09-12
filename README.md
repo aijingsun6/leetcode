@@ -36,6 +36,7 @@
 ### table(1001-1100)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 1010 | array | easy | [总持续时间可被 60 整除的歌曲](https://leetcode-cn.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)|
 ### table(1101-1200)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
