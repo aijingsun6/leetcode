@@ -49,6 +49,7 @@
 ### table(1301-1400)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 1346 | array | easy |[检查整数及其两倍数是否存在](https://leetcode-cn.com/problems/check-if-n-and-its-double-exist/) |
 | 1365 | array | easy |[有多少小于当前数字的数字](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/) |
 
 ### table(1401-1500)
