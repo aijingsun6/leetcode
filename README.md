@@ -1,10 +1,20 @@
 ﻿# algo
 
 ### table(1-100)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(101-200)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(201-300)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(301-400)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(401-500)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(501-600)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
@@ -15,9 +25,17 @@
 | --- | --- | --- | --- |
 | 674 | array | easy |[最长连续递增序列](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/) |
 ### table(701-800)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(801-900)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(901-1000)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(1001-1100)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
 ### table(1101-1200)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
@@ -27,9 +45,5 @@
 | --- | --- | --- | --- |
 | 1299 | array | easy |[将每个元素替换为右侧最大元素](https://leetcode-cn.com/problems/replace-elements-with-greatest-element-on-right-side/) |
 ### table(1301-1400)
-
-| index | type |
-| --- | --- |
-| 1122 | array |
-| 1299 | array |
-
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
