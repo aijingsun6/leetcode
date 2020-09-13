@@ -35,6 +35,7 @@
 | 697 | array | easy |[ 数组的度](https://leetcode-cn.com/problems/degree-of-an-array/submissions/) |
 ### table(701-800)
 | index | type | difficulty|title |
+| 746 | array,dp| easy | [使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
 | --- | --- | --- | --- |
 ### table(801-900)
 | index | type | difficulty|title |
