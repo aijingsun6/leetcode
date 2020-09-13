@@ -60,6 +60,7 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 1217 | array | easy |[玩筹码](https://leetcode-cn.com/problems/minimum-cost-to-move-chips-to-the-same-position/) |
+| 1295 | array | easy |[统计位数为偶数的数字](https://leetcode-cn.com/problems/find-numbers-with-even-number-of-digits/) |
 | 1299 | array | easy |[将每个元素替换为右侧最大元素](https://leetcode-cn.com/problems/replace-elements-with-greatest-element-on-right-side/) |
 ### table(1301-1400)
 | index | type | difficulty|title |
