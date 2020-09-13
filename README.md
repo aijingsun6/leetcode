@@ -43,6 +43,7 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 985 | array | easy | [查询后的偶数和](https://leetcode-cn.com/problems/sum-of-even-numbers-after-queries/) |
+| 989 | array | easy | [数组形式的整数加法](https://leetcode-cn.com/problems/add-to-array-form-of-integer/) |
 ### table(1001-1100)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
