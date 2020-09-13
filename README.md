@@ -71,6 +71,7 @@
 ### table(1401-1500)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 1460 | array | easy |[通过翻转子数组使两个数组相等](https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/) |
 | 1470 | array | easy |[重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
 | 1480 | array | easy |[一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
 | 1491 | array | easy |[去掉最低工资和最高工资后的工资平均值](https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
