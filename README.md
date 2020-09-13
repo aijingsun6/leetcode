@@ -42,6 +42,7 @@
 ### table(901-1000)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 985 | array | easy | [查询后的偶数和](https://leetcode-cn.com/problems/sum-of-even-numbers-after-queries/) |
 ### table(1001-1100)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
@@ -65,6 +66,7 @@
 ### table(1401-1500)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 1470 | array| easy|[重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
 | 1480 | array | easy |[一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
 
 
