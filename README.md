@@ -50,6 +50,7 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 1122 | array | easy |[数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/) |
+| 1200 | array | easy |[最小绝对差](https://leetcode-cn.com/problems/minimum-absolute-difference/)|
 ### table(1201-1300)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
