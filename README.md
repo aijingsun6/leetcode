@@ -67,8 +67,15 @@
 ### table(1401-1500)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
-| 1470 | array| easy|[重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
+| 1470 | array | easy |[重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
 | 1480 | array | easy |[一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
+| 1491 | array | easy |[去掉最低工资和最高工资后的工资平均值](https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
+### table(1501-1600)
 
+### table(1601-1700)
 
+### table(1701-1800)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
+| 1768 | array | easy | [消失的数字](https://leetcode-cn.com/problems/missing-number-lcci/)
 
