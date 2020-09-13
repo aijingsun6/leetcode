@@ -23,7 +23,16 @@
 ### table(601-700)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 605 | array | easy |[种花问题](https://leetcode-cn.com/problems/can-place-flowers/) |
+| 622 | queue | easy |[设计循环队列](https://leetcode-cn.com/problems/design-circular-queue/) |
+| 628 | array | easy |[三个数的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-three-numbers/) |
+| 637 | tree | easy |[二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/) |
+| 647 | dp | easy |[回文子串](https://leetcode-cn.com/problems/palindromic-substrings/) |
+| 657 | string | easy |[机器人能否返回原点](https://leetcode-cn.com/problems/robot-return-to-origin/) |
 | 674 | array | easy |[最长连续递增序列](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/) |
+| 679 | dfs | hard |[24 点游戏](https://leetcode-cn.com/problems/24-game/) |
+| 696 | string | easy |[计数二进制子串](https://leetcode-cn.com/problems/count-binary-substrings/) |
+| 697 | array | easy |[ 数组的度](https://leetcode-cn.com/problems/degree-of-an-array/submissions/) |
 ### table(701-800)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
