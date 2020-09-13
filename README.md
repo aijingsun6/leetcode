@@ -74,6 +74,9 @@
 ### table(1501-1600)
 
 ### table(1601-1700)
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
+| 1683 | array | easy | [判定是否互为字符重排](https://leetcode-cn.com/problems/check-permutation-lcci/)
 
 ### table(1701-1800)
 | index | type | difficulty|title |
