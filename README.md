@@ -3,6 +3,7 @@
 ### table(1-100)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 94 | tree | easy | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)|
 ### table(101-200)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
