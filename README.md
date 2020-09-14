@@ -75,6 +75,7 @@
 ### table(1401-1500)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 1431 | array | easy |[拥有最多糖果的孩子](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/) |
 | 1450 | array | easy |[在既定时间做作业的学生人数](https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time/) |
 | 1460 | array | easy |[通过翻转子数组使两个数组相等](https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/) |
 | 1470 | array | easy |[重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
