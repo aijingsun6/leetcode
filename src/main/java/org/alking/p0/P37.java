@@ -1,16 +1,18 @@
 package org.alking.p0;
 
-import java.util.*;
-
+/**
+ * i <- 0 -> 8
+ * '1' + i
+ */
 public class P37 {
 
     private boolean[][] origin = new boolean[9][9];
 
-    private Set<Character>[] rowLeft = new Set[9];
+    private boolean[][] rowLeft = new boolean[9][9];
 
-    private Set<Character>[] colLeft = new Set[9];
+    private boolean[][] colLeft = new boolean[9][9];
 
-    private Set<Character>[][] rcLeft = new Set[3][3];
+    private boolean[][][] rcLeft = new boolean[3][3][9];
 
     public void solveSudoku(char[][] board) {
         initState(board);
@@ -36,25 +38,31 @@ public class P37 {
 
         int rci = i / 3;
         int rcj = j / 3;
-        Set<Character> s = new HashSet<>(rowLeft[i]);
-        s.retainAll(colLeft[j]);
-        s.retainAll(rcLeft[rci][rcj]);
-        if (s.isEmpty()) {
-            return false;
-        }
-        System.out.println(String.format("(%d,%d) options:%s", i, j, s));
-        for (char c : s) {
-            board[i][j] = c;
-            rowLeft[i].remove(c);
-            colLeft[j].remove(c);
-            rcLeft[rci][rcj].remove(c);
+
+
+        for (int v = 0; v < 9; v++) {
+
+            if (rowLeft[i][v]) {
+                continue;
+            }
+
+            if (colLeft[j][v]) {
+                continue;
+            }
+            if (rcLeft[rci][rcj][v]) {
+                continue;
+            }
+
+            board[i][j] = (char) ('1' + v);
+            rowLeft[i][v] = true;
+            colLeft[j][v] = true;
+            rcLeft[rci][rcj][v] = true;
             if (dfs(nextI, nextJ, board)) {
                 return true;
             }
-            board[i][j] = '.';
-            rowLeft[i].add(c);
-            colLeft[j].add(c);
-            rcLeft[rci][rcj].add(c);
+            rowLeft[i][v] = false;
+            colLeft[j][v] = false;
+            rcLeft[rci][rcj][v] = false;
         }
         return false;
 
@@ -62,18 +70,16 @@ public class P37 {
 
 
     private void initState(char[][] board) {
-        List<Character> all = Arrays.asList('1', '2', '3', '4', '5', '6', '7', '8', '9');
-        // init origin
         for (int i = 0; i < 9; i++) {
             origin[i] = new boolean[9];
-            rowLeft[i] = new HashSet<>(all);
-            colLeft[i] = new HashSet<>(all);
+            rowLeft[i] = new boolean[9];
+            colLeft[i] = new boolean[9];
         }
 
         for (int i = 0; i < 3; i++) {
-            rcLeft[i] = new HashSet[3];
+            rcLeft[i] = new boolean[3][9];
             for (int j = 0; j < 3; j++) {
-                rcLeft[i][j] = new HashSet<>(all);
+                rcLeft[i][j] = new boolean[9];
             }
         }
 
@@ -82,9 +88,9 @@ public class P37 {
                 char c = board[i][j];
                 if (c != '.') {
                     origin[i][j] = true;
-                    rowLeft[i].remove(c);
-                    colLeft[j].remove(c);
-                    rcLeft[i / 3][j / 3].remove(c);
+                    rowLeft[i][c - '1'] = true;
+                    colLeft[j][c - '1'] = true;
+                    rcLeft[i / 3][j / 3][c - '1'] = true;
                 }
             }
         }
