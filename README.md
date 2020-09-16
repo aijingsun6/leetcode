@@ -14,6 +14,7 @@
 ### table(301-400)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 342 | bit | easy | [4的幂](https://leetcode-cn.com/problems/power-of-four/)|
 ### table(401-500)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
