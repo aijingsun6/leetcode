@@ -20,6 +20,7 @@
 ### table(501-600)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 542 | dfs,bfs | middle |[01 矩阵](https://leetcode-cn.com/problems/01-matrix/) |
 | 561 | array | easy |[数组拆分 I](https://leetcode-cn.com/problems/array-partition-i/) |
 | 566 | array | easy |[重塑矩阵](https://leetcode-cn.com/problems/reshape-the-matrix/) |
 ### table(601-700)
