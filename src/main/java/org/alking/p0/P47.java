@@ -10,7 +10,7 @@ public class P47 {
             return Collections.emptyList();
         }
         List<List<Integer>> acc = new ArrayList<>();
-        ArrayDeque<Integer> queue = new ArrayDeque<>();
+        ArrayList<Integer> queue = new ArrayList<>();
         boolean[] visit = new boolean[nums.length];
         Arrays.sort(nums);
         dfs(queue, nums, visit, 0, acc);
@@ -18,7 +18,7 @@ public class P47 {
     }
 
 
-    private void dfs(ArrayDeque<Integer> queue, int[] nums, boolean[] visit, int count, List<List<Integer>> acc) {
+    private void dfs(ArrayList<Integer> queue, int[] nums, boolean[] visit, int count, List<List<Integer>> acc) {
         if (count == nums.length) {
             acc.add(new ArrayList<>(queue));
         }
@@ -31,9 +31,9 @@ public class P47 {
             if (v > tmp) {
                 tmp = v;
                 visit[idx] = true;
-                queue.addLast(v);
+                queue.add(v);
                 dfs(queue, nums, visit, count + 1, acc);
-                queue.removeLast();
+                queue.remove(queue.size() - 1);
                 visit[idx] = false;
             }
         }
