@@ -12,6 +12,7 @@ public class P47 {
         List<List<Integer>> acc = new ArrayList<>();
         ArrayDeque<Integer> queue = new ArrayDeque<>();
         boolean[] visit = new boolean[nums.length];
+        Arrays.sort(nums);
         dfs(queue, nums, visit, 0, acc);
         return acc;
     }
@@ -21,22 +22,20 @@ public class P47 {
         if (count == nums.length) {
             acc.add(new ArrayList<>(queue));
         }
-        Set<Integer> set = new HashSet<>();
+        int tmp = Integer.MIN_VALUE;
         for (int idx = 0; idx < nums.length; idx++) {
-
             if (visit[idx]) {
                 continue;
             }
             int v = nums[idx];
-            if (set.contains(v)) {
-                continue;
+            if (v > tmp) {
+                tmp = v;
+                visit[idx] = true;
+                queue.addLast(v);
+                dfs(queue, nums, visit, count + 1, acc);
+                queue.removeLast();
+                visit[idx] = false;
             }
-            set.add(v);
-            visit[idx] = true;
-            queue.addLast(v);
-            dfs(queue, nums, visit, count + 1, acc);
-            queue.removeLast();
-            visit[idx] = false;
         }
 
     }
