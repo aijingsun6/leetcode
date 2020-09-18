@@ -11,27 +11,32 @@ public class P47 {
         }
         List<List<Integer>> acc = new ArrayList<>();
         ArrayDeque<Integer> queue = new ArrayDeque<>();
-        List<Integer> list = new LinkedList<>();
-        for (int v : nums) {
-            list.add(v);
-        }
-        dfs(queue, list, acc);
+        boolean[] visit = new boolean[nums.length];
+        dfs(queue, nums, visit, 0, acc);
         return acc;
     }
 
 
-    private void dfs(ArrayDeque<Integer> queue, List<Integer> left, List<List<Integer>> acc) {
-        if (left.isEmpty()) {
+    private void dfs(ArrayDeque<Integer> queue, int[] nums, boolean[] visit, int count, List<List<Integer>> acc) {
+        if (count == nums.length) {
             acc.add(new ArrayList<>(queue));
         }
+        Set<Integer> set = new HashSet<>();
+        for (int idx = 0; idx < nums.length; idx++) {
 
-        Set<Integer> set = new HashSet<>(left);
-        for (Integer v : set) {
-            left.remove(v);
+            if (visit[idx]) {
+                continue;
+            }
+            int v = nums[idx];
+            if (set.contains(v)) {
+                continue;
+            }
+            set.add(v);
+            visit[idx] = true;
             queue.addLast(v);
-            dfs(queue, left, acc);
+            dfs(queue, nums, visit, count + 1, acc);
             queue.removeLast();
-            left.add(v);
+            visit[idx] = false;
         }
 
     }
