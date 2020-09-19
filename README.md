@@ -54,6 +54,7 @@
 | --- | --- | --- | --- |
 | 1002 | array | easy | [查找常用字符](https://leetcode-cn.com/problems/find-common-characters/)|
 | 1010 | array | easy | [总持续时间可被 60 整除的歌曲](https://leetcode-cn.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)|
+| 1051 | array | easy | [高度检查器](https://leetcode-cn.com/problems/height-checker/)|
 ### table(1101-1200)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
