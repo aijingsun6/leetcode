@@ -88,7 +88,9 @@
 | 1480 | array | easy |[一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
 | 1491 | array | easy |[去掉最低工资和最高工资后的工资平均值](https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
 ### table(1501-1600)
-
+| index | type | difficulty|title |
+| --- | --- | --- | --- |
+| 1512 | array | easy | [好数对的数目](https://leetcode-cn.com/problems/number-of-good-pairs/)
 ### table(1601-1700)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
