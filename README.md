@@ -83,12 +83,13 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 1413 | array | easy | [逐步求和得到正数的最小值](https://leetcode-cn.com/problems/minimum-value-to-get-positive-step-by-step-sum/)|
-| 1431 | array | easy |[拥有最多糖果的孩子](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/) |
-| 1450 | array | easy |[在既定时间做作业的学生人数](https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time/) |
-| 1460 | array | easy |[通过翻转子数组使两个数组相等](https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/) |
-| 1470 | array | easy |[重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
-| 1480 | array | easy |[一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
-| 1491 | array | easy |[去掉最低工资和最高工资后的工资平均值](https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
+| 1431 | array | easy | [拥有最多糖果的孩子](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/) |
+| 1450 | array | easy | [在既定时间做作业的学生人数](https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time/) |
+| 1460 | array | easy | [通过翻转子数组使两个数组相等](https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/) |
+| 1464 | array | easy | [数组中两元素的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-two-elements-in-an-array/) |
+| 1470 | array | easy | [重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array/) |
+| 1480 | array | easy | [一维数组的动态和](https://leetcode-cn.com/problems/running-sum-of-1d-array/) |
+| 1491 | array | easy | [去掉最低工资和最高工资后的工资平均值](https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
 ### table(1501-1600)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
