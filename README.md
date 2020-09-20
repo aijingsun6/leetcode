@@ -4,6 +4,7 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 37 | backtracking | hard | [解数独](https://leetcode-cn.com/problems/sudoku-solver/)|
+| 78 | backtracking | easy | [子集](https://leetcode-cn.com/problems/subsets/) |
 | 94 | tree | easy | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)|
 ### table(101-200)
 | index | type | difficulty|title |
