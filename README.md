@@ -71,9 +71,10 @@
 ### table(1301-1400)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
-| 1304 | array | easy | [和为零的N个唯一整数](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero/) |
-| 1337 | array | easy | [方阵中战斗力最弱的 K 行](https://leetcode-cn.com/problems/the-k-weakest-rows-in-a-matrix/) |
+| 1304 | array | easy |[和为零的N个唯一整数](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero/) |
+| 1337 | array | easy |[方阵中战斗力最弱的 K 行](https://leetcode-cn.com/problems/the-k-weakest-rows-in-a-matrix/) |
 | 1346 | array | easy |[检查整数及其两倍数是否存在](https://leetcode-cn.com/problems/check-if-n-and-its-double-exist/) |
+| 1351 | array | easy |[统计有序矩阵中的负数](https://leetcode-cn.com/problems/count-negative-numbers-in-a-sorted-matrix/) |
 | 1365 | array | easy |[有多少小于当前数字的数字](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/) |
 | 1380 | array | easy |[矩阵中的幸运数](https://leetcode-cn.com/problems/lucky-numbers-in-a-matrix/)|
 | 1394 | array | easy |[找出数组中的幸运数](https://leetcode-cn.com/problems/find-lucky-integer-in-an-array/) |
