@@ -93,7 +93,8 @@
 ### table(1501-1600)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
-| 1512 | array | easy | [好数对的数目](https://leetcode-cn.com/problems/number-of-good-pairs/)
+| 1512 | array | easy | [好数对的数目](https://leetcode-cn.com/problems/number-of-good-pairs/) |
+| 1582 | array | easy | [二进制矩阵中的特殊位置](https://leetcode-cn.com/problems/special-positions-in-a-binary-matrix/)|
 ### table(1601-1700)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
