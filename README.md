@@ -4,6 +4,7 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 11 | array | middle | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)|
+| 16 | array | middle | [最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest/)|
 | 37 | backtracking | hard | [解数独](https://leetcode-cn.com/problems/sudoku-solver/)|
 | 78 | backtracking | easy | [子集](https://leetcode-cn.com/problems/subsets/) |
 | 94 | tree | easy | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)|
