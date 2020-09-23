@@ -31,6 +31,7 @@
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
 | 605 | array | easy |[种花问题](https://leetcode-cn.com/problems/can-place-flowers/) |
+| 617 | tree | easy | [合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/) |
 | 622 | queue | easy |[设计循环队列](https://leetcode-cn.com/problems/design-circular-queue/) |
 | 628 | array | easy |[三个数的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-three-numbers/) |
 | 637 | tree | easy |[二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/) |
