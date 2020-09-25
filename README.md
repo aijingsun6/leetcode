@@ -3,6 +3,7 @@
 ### table(1-100)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
+| 6 | string | easy| [Z 字形变换](https://leetcode-cn.com/problems/zigzag-conversion/)|
 | 11 | array | middle | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)|
 | 16 | array | middle | [最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest/)|
 | 37 | backtracking | hard | [解数独](https://leetcode-cn.com/problems/sudoku-solver/)|
