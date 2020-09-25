@@ -23,16 +23,20 @@ public class P12 {
 
 
     public String intToRoman(int num) {
-        List<String> list = new LinkedList<>();
+        List<String> list = new ArrayList<>();
         int idx = 0;
         int t;
         while (num > 0) {
             t = num % 10;
-            list.add(0, MAPS[idx][t]);
+            list.add(MAPS[idx][t]);
             num = num / 10;
             idx += 1;
         }
 
-        return String.join("", list);
+        StringBuilder sb = new StringBuilder();
+        for(int i = list.size()-1; i >=0 ; i--){
+           sb.append(list.get(i));
+        }
+        return sb.toString();
     }
 }
