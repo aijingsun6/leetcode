@@ -12,6 +12,7 @@
 ### table(101-200)
 | index | type | difficulty|title |
 | ---   | --- | --- | ---|
+| 112 | tree | easy | [路径总和](https://leetcode-cn.com/problems/path-sum/)|
 | 113 | tree | easy | [路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)|
 ### table(201-300)
 | index | type | difficulty|title |
