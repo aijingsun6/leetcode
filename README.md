@@ -14,6 +14,7 @@
 | ---   | --- | --- | ---|
 | 112 | tree | easy | [路径总和](https://leetcode-cn.com/problems/path-sum/)|
 | 113 | tree | easy | [路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)|
+| 129 | tree | middle | [求根到叶子节点数字之和](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/)
 ### table(201-300)
 | index | type | difficulty|title |
 | --- | --- | --- | --- |
