@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class P290_WordPattern {
+public class P290 {
 
     public boolean wordPattern(String pattern, String str) {
         int patternSize = pattern.length();
