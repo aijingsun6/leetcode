@@ -17,26 +17,18 @@ public class P94 {
     }
 
     public List<Integer> inorderTraversal(TreeNode root) {
-
-        if (root == null) {
-            return Collections.emptyList();
-        }
         List<Integer> acc = new ArrayList<>();
-
         inorderTraversal(root, acc);
         return acc;
-
-
     }
 
     private void inorderTraversal(TreeNode root, List<Integer> acc) {
-        if (root.left != null) {
-            inorderTraversal(root.left, acc);
+        if(root == null){
+            return;
         }
+        inorderTraversal(root.left, acc);
         acc.add(root.val);
-        if (root.right != null) {
-            inorderTraversal(root.right, acc);
-        }
+        inorderTraversal(root.right, acc);
 
     }
 }
