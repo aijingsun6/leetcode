@@ -17,7 +17,7 @@ public class P530 {
         if (root == null) {
             return 0;
         }
-        this.prev = null;
+        this.prev = -1;
         this.result = Integer.MAX_VALUE;
 
         dfs(root);
@@ -34,11 +34,12 @@ public class P530 {
             dfs(root.left);
         }
 
-        if (prev == null) {
+        if (prev < 0) {
             prev = root.val;
         } else {
             int diff = root.val - prev;
             this.result = Math.min(this.result, diff);
+            this.prev = root.val;
         }
 
         if (root.right != null) {
