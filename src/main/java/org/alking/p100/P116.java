@@ -27,28 +27,36 @@ public class P116 {
     }
 
     public Node connect(Node root) {
+        Node head = root;
+        while (head != null) {
 
-        if (root == null) {
-            return root;
-        }
-        ArrayDeque<Node> queue = new ArrayDeque<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
             Node tail = null;
-            for (int i = 0; i < size; i++) {
-                Node n = queue.removeFirst();
-                if (tail != null) {
-                    tail.next = n;
+            Node h = null;
+            while (head != null) {
+
+                if (head.left != null) {
+                    if(h == null){
+                        h = head.left;
+                    }
+                    if (tail != null) {
+                        tail.next = head.left;
+                    }
+                    tail = head.left;
+
                 }
-                tail = n;
-                if (n.left != null) {
-                    queue.addLast(n.left);
+                if (head.right != null) {
+                    if(h == null){
+                        h = head.right;
+                    }
+                    if (tail != null) {
+                        tail.next = head.right;
+                    }
+                    tail = head.right;
                 }
-                if (n.right != null) {
-                    queue.addLast(n.right);
-                }
+
+                head = head.next;
             }
+            head = h;
         }
         return root;
     }
