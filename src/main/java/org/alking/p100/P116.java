@@ -1,8 +1,5 @@
 package org.alking.p100;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-
 public class P116 {
 
     public static class Node {
@@ -29,34 +26,20 @@ public class P116 {
     public Node connect(Node root) {
         Node head = root;
         while (head != null) {
-
-            Node tail = null;
-            Node h = null;
+            Node h = new Node();
+            Node tail = h;
             while (head != null) {
-
                 if (head.left != null) {
-                    if(h == null){
-                        h = head.left;
-                    }
-                    if (tail != null) {
-                        tail.next = head.left;
-                    }
+                    tail.next = head.left;
                     tail = head.left;
-
                 }
                 if (head.right != null) {
-                    if(h == null){
-                        h = head.right;
-                    }
-                    if (tail != null) {
-                        tail.next = head.right;
-                    }
+                    tail.next = head.right;
                     tail = head.right;
                 }
-
                 head = head.next;
             }
-            head = h;
+            head = h.next;
         }
         return root;
     }
