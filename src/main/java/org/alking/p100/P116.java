@@ -1,5 +1,6 @@
 package org.alking.p100;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 public class P116 {
@@ -30,29 +31,25 @@ public class P116 {
         if (root == null) {
             return root;
         }
-
-        ArrayList<Node> nodes = new ArrayList<>();
-        nodes.add(root);
-        ArrayList<Node> list = new ArrayList<>();
-        while (!nodes.isEmpty()) {
-            list.addAll(nodes);
-            nodes.clear();
-            for (int i = 0; i < list.size(); i++) {
-                Node n = list.get(i);
-                if(i < list.size()-1){
-                    n.next = list.get(i + 1);
+        ArrayDeque<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            Node tail = null;
+            for (int i = 0; i < size; i++) {
+                Node n = queue.removeFirst();
+                if (tail != null) {
+                    tail.next = n;
                 }
-                if(n.left != null){
-                    nodes.add(n.left);
+                tail = n;
+                if (n.left != null) {
+                    queue.addLast(n.left);
                 }
-                if(n.right != null){
-                    nodes.add(n.right);
-
+                if (n.right != null) {
+                    queue.addLast(n.right);
                 }
             }
-            list.clear();
         }
-
         return root;
     }
 }
