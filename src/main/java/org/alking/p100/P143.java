@@ -26,18 +26,18 @@ public class P143 {
         if (head == null || head.next == null) {
             return;
         }
-        ArrayDeque<ListNode> queue = new ArrayDeque<>();
+        LinkedList<ListNode> queue = new LinkedList<>();
         ListNode n = head;
         while (n != null) {
             queue.addLast(n);
             n = n.next;
         }
         ListNode tail = queue.removeFirst();
-        while (!queue.isEmpty()){
+        while (queue.peek() != null){
             n = queue.removeLast();
             tail.next = n;
             tail = n;
-            if(queue.isEmpty()){
+            if(queue.peek() == null){
                 break;
             }
             n = queue.removeFirst();
