@@ -22,87 +22,52 @@ public class P148 {
         if (head == null) {
             return null;
         }
-        ListNode[] soft = sort(head);
-        return soft[0];
+        if(head.next == null){
+            return head;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode right = slow.next;
+        slow.next = null;
+        ListNode left = sortList(head);
+        right = sortList(right);
+        return merge(left, right);
     }
 
-    private ListNode[] sort(ListNode head) {
-        // head != null
-        if (head.next == null) {
-            // 1 node
-            return new ListNode[]{head, head};
+    private ListNode merge(ListNode left, ListNode right) {
+
+        if (left == null) {
+            return right;
         }
-        if(head.next.next == null){
-            // 2 nodes
-            ListNode[] result = new ListNode[2];
-            if(head.val > head.next.val){
-                result[0] = head.next;
-                result[1] = head;
-                result[0].next = result[1];
-                result[1].next = null;
-            }else {
-                result[0] = head;
-                result[1] = head.next;
-            }
-            return result;
+        if (right == null) {
+            return left;
         }
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
 
-        ListNode ltHead = null;
-        ListNode ltTail = null;
+        while (left != null && right != null) {
 
-        ListNode eqHead = null;
-        ListNode eqTail = null;
-
-
-        ListNode gtHead = null;
-        ListNode gtTail = null;
-
-        int eqValue = head.val;
-
-        while (head != null) {
-            if (head.val < eqValue) {
-                if(ltHead == null){
-                    ltHead = head;
-                }else {
-                    ltTail.next = head;
-                }
-                ltTail = head;
-            } else if (head.val > eqValue) {
-               if(gtHead == null){
-                   gtHead = head;
-               }else {
-                   gtTail.next = head;
-               }
-                gtTail = head;
-
+            if (left.val < right.val) {
+                tail.next = left;
+                tail = left;
+                left = left.next;
             } else {
-                if(eqHead == null){
-                    eqHead = head;
-                }else {
-                    eqTail.next = head;
-                }
-                eqTail = head;
+                tail.next = right;
+                tail = right;
+                right = right.next;
             }
-            head = head.next;
         }
-
-        head = eqHead;
-        ListNode tail = eqTail;
-
-        if(ltHead != null){
-            ltTail.next = null;
-            ListNode[] left = sort(ltHead);
-            head = left[0];
-            left[1].next = eqHead;
+        if (left != null) {
+            tail.next = left;
         }
-
-        if(gtHead != null){
-            gtTail.next = null;
-            ListNode[] right = sort(gtHead);
-            tail.next = right[0];
-            tail = right[1];
+        if (right != null) {
+            tail.next = right;
         }
-        tail.next = null;
-        return new ListNode[]{head, tail};
+        return dummy.next;
     }
 }
