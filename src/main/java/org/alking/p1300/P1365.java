@@ -5,24 +5,23 @@ import java.util.*;
 public class P1365 {
 
     public int[] smallerNumbersThanCurrent(int[] nums) {
-
         if (nums == null || nums.length < 2) {
             return nums;
         }
-
-        int[] sort = new int[nums.length];
+        int size = nums.length;
+        int[] sort = new int[size];
         System.arraycopy(nums, 0, sort, 0, nums.length);
         Arrays.sort(sort);
-        HashMap<Integer, Integer> map = new HashMap<>();
+        int max = sort[size - 1];
+        int[] map = new int[max + 1];
         for (int i = 1; i < sort.length; i++) {
             if (sort[i - 1] < sort[i]) {
-                map.put(sort[i], i);
+                map[sort[i]] = i;
             }
         }
         int[] res = new int[nums.length];
-        for(int i=0;i < nums.length;i++){
-            int v = nums[i];
-            res[i] = map.getOrDefault(v,0);
+        for (int i = 0; i < nums.length; i++) {
+            res[i] = map[nums[i]];
         }
         return res;
     }
