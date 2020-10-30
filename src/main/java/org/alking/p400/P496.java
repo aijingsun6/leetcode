@@ -1,41 +1,38 @@
 package org.alking.p400;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
+
 
 public class P496 {
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        if(nums1==null || nums1.length == 0){
+            return nums1;
+        }
         int[] res = new int[nums1.length];
-        ArrayDeque<Integer> queue = new ArrayDeque<>();
-        HashMap<Integer, Integer> map = new HashMap<>();
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        int min = nums2[0];
+        int max = nums2[0];
+        for(int v2: nums2){
+            min = Math.min(min,v2);
+            max = Math.max(max,v2);
+        }
+
+        int[] cache = new int[max-min+1];
+        Arrays.fill(cache,-1);
         int v;
         int first;
-        int size;
         for (int i = 0; i < nums2.length; i++) {
             v = nums2[i];
-            if(queue.isEmpty()){
-                queue.addLast(v);
-                continue;
+            while (!queue.isEmpty() && queue.peek() < v) {
+                first = queue.poll();
+                cache[first-min] = v;
             }
-            size = queue.size();
-            for(int j = 0; j < size; j ++){
-                first = queue.pollFirst();
-                if(first < v){
-                    map.put(first,v);
-                }else {
-                    queue.addLast(first);
-                }
-            }
-            queue.addLast(v);
+            queue.add(v);
         }
-        for(int v2: queue){
-            map.put(v2,-1);
-        }
-        for(int i = 0; i < nums1.length;i++){
-            res[i]=map.get(nums1[i]);
+
+        for (int i = 0; i < nums1.length; i++) {
+            res[i] = cache[nums1[i]-min];
         }
         return res;
     }
