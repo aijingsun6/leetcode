@@ -16,20 +16,28 @@ public class P594 {
         Arrays.sort(nums);
         int res = 0;
         int start = Integer.MIN_VALUE;
+        int startCnt = 0;
         int cnt = 0;
 
-        for(int v: nums){
-               if(v == start){
-                   cnt += 1;
-                   continue;
-               }
-               if(v == start+1){
-                   cnt += 1;
-                   res = Math.max(res, cnt);
-                   continue;
-               }
-               start = v;
-               cnt = 1;
+        for (int v : nums) {
+            if (v == start) {
+                startCnt += 1;
+                cnt += 1;
+                continue;
+            }
+            if (v == start + 1) {
+                cnt += 1;
+                res = Math.max(res, cnt);
+                continue;
+            }
+            if (v == start + 2) {
+                start = start + 1;
+                startCnt  = cnt - startCnt;
+                cnt = startCnt;
+            }
+            start = v;
+            startCnt = 1;
+            cnt = 1;
         }
         return res;
     }
