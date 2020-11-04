@@ -57,9 +57,9 @@ public class P671 {
                 if (n.right != null) {
                     queue.add(n.right);
                 }
-                if (!next) {
-                    break;
-                }
+            }
+            if (!next) {
+                break;
             }
         }
         if (hasMin) {
