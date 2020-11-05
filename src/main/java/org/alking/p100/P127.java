@@ -44,20 +44,22 @@ public class P127 {
     }
 
     private HashMap<String, ArrayList<String>> buildLadderMap(String beginWord, List<String> wordList) {
-        HashMap<String, ArrayList<String>> acc = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> acc = new HashMap<>();
         int size = wordList.size();
+        for (String s : wordList) {
+            acc.put(s, new ArrayList<>());
+        }
         for (int i = 0; i < size; i++) {
+            String s1 = wordList.get(i);
+            ArrayList<String> l1 = acc.get(s1);
             for (int j = i + 1; j < size; j++) {
-                String s1 = wordList.get(i);
+
                 String s2 = wordList.get(j);
                 if (isLadder(s1, s2)) {
-                    ArrayList<String> l1 = acc.getOrDefault(s1, new ArrayList<>());
                     l1.add(s2);
-                    acc.put(s1, l1);
 
-                    ArrayList<String> l2 = acc.getOrDefault(s2, new ArrayList<>());
+                    ArrayList<String> l2 = acc.get(s2);
                     l2.add(s1);
-                    acc.put(s2, l2);
                 }
             }
         }
