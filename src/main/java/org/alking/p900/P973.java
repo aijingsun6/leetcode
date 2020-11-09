@@ -9,14 +9,12 @@ public class P973 {
 
         public int x;
         public int y;
+        public int dist;
 
         public Point(int x, int y) {
             this.x = x;
             this.y = y;
-        }
-
-        public int dist() {
-            return x * x + y * y;
+            this.dist = x * x + y * y;
         }
 
     }
@@ -27,7 +25,7 @@ public class P973 {
         PriorityQueue<Point> queue = new PriorityQueue<>(new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
-                return o2.dist() - o1.dist();
+                return o2.dist - o1.dist;
             }
         });
 
