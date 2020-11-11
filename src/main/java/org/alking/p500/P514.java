@@ -1,35 +1,71 @@
 package org.alking.p500;
 
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class P514 {
 
+    public static class Node {
+
+        public char c;
+
+        public ArrayList<int[]> acc = new ArrayList<>();
+
+        public Node(char c) {
+            this.c = c;
+        }
+    }
+
+    private int calcDist(int i, int j, int len) {
+        int dist1 = (j + len - i) % len;
+        int dist2 = (i + len - j) % len;
+        return Math.min(dist1, dist2) + 1;
+    }
+
+    private ArrayList<Integer>[] calcCache(String ring) {
+        ArrayList<Integer>[] map = new ArrayList['z' - 'a' + 1];
+        for (int i = 0; i < ring.length(); i++) {
+            int idx = ring.charAt(i) - 'a';
+            if (map[idx] == null) {
+                map[idx] = new ArrayList<>();
+            }
+            map[idx].add(i);
+        }
+        return map;
+    }
+
     public int findRotateSteps(String ring, String key) {
-        int n = ring.length(), m = key.length();
-        List<Integer>[] pos = new List[26];
-        for (int i = 0; i < 26; ++i) {
-            pos[i] = new ArrayList<Integer>();
-        }
-        for (int i = 0; i < n; ++i) {
-            pos[ring.charAt(i) - 'a'].add(i);
-        }
-        int[][] dp = new int[m][n];
-        for (int i = 0; i < m; ++i) {
-            Arrays.fill(dp[i], 0x3f3f3f);
-        }
-        for (int i : pos[key.charAt(0) - 'a']) {
-            dp[0][i] = Math.min(i, n - i) + 1;
-        }
-        for (int i = 1; i < m; ++i) {
-            for (int j : pos[key.charAt(i) - 'a']) {
-                for (int k : pos[key.charAt(i - 1) - 'a']) {
-                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][k] + Math.min(Math.abs(j - k), n - Math.abs(j - k)) + 1);
+        ArrayList<Integer>[] map = calcCache(ring);
+        Node[] dp = new Node[key.length()];
+        for (int i = 0; i < key.length(); i++) {
+            char c = key.charAt(i);
+            ArrayList<Integer> idxList = map[c - 'a'];
+            Node n = new Node(c);
+            if (i == 0) {
+                for (int idx : idxList) {
+                    int dist = calcDist(0, idx, ring.length());
+                    n.acc.add(new int[]{idx, dist});
+                }
+            } else {
+                ArrayList<int[]> acc = dp[i - 1].acc;
+                for (int idx : idxList) {
+                    int min = Integer.MAX_VALUE;
+                    for (int[] prev : acc) {
+                        int dist = prev[1] + calcDist(prev[0], idx, ring.length());
+                        min = Math.min(min, dist);
+                    }
+                    n.acc.add(new int[]{idx, min});
                 }
             }
+            dp[i] = n;
         }
-        return Arrays.stream(dp[m - 1]).min().getAsInt();
+        Node node = dp[key.length() - 1];
+        int min = Integer.MAX_VALUE;
+        for (int[] arr : node.acc) {
+            min = Math.min(min, arr[1]);
+        }
+        return min;
     }
+
 
 }
