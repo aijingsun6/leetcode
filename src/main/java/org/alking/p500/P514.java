@@ -1,46 +1,35 @@
 package org.alking.p500;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class P514 {
 
     public int findRotateSteps(String ring, String key) {
-        init(ring);
-        bfs(ring, 0, key, 0, 0);
-        return min + key.length();
-    }
-
-    private int min = Integer.MAX_VALUE;
-    ArrayList<Integer>[] map = new ArrayList['z' - 'a' + 1];
-
-    private void init(String ring) {
-        map = new ArrayList['z' - 'a' + 1];
-        for (int i = 0; i < ring.length(); i++) {
-            char c = ring.charAt(i);
-            int idx = c - 'a';
-            if (map[idx] == null) {
-                map[idx] = new ArrayList<>();
+        int n = ring.length(), m = key.length();
+        List<Integer>[] pos = new List[26];
+        for (int i = 0; i < 26; ++i) {
+            pos[i] = new ArrayList<Integer>();
+        }
+        for (int i = 0; i < n; ++i) {
+            pos[ring.charAt(i) - 'a'].add(i);
+        }
+        int[][] dp = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(dp[i], 0x3f3f3f);
+        }
+        for (int i : pos[key.charAt(0) - 'a']) {
+            dp[0][i] = Math.min(i, n - i) + 1;
+        }
+        for (int i = 1; i < m; ++i) {
+            for (int j : pos[key.charAt(i) - 'a']) {
+                for (int k : pos[key.charAt(i - 1) - 'a']) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][k] + Math.min(Math.abs(j - k), n - Math.abs(j - k)) + 1);
+                }
             }
-            map[idx].add(i);
         }
-        min = Integer.MAX_VALUE;
+        return Arrays.stream(dp[m - 1]).min().getAsInt();
     }
-
-    private void bfs(String ring, int ringIdx, String key, int keyIdx, int acc) {
-        if (keyIdx == key.length()) {
-            min = Math.min(min, acc);
-            return;
-        }
-        char c = key.charAt(keyIdx);
-        ArrayList<Integer> idxList = map[c - 'a'];
-        for (int idx : idxList) {
-            int dist = (idx + ring.length() - ringIdx) % ring.length();
-            bfs(ring, idx, key, keyIdx + 1, acc + dist);
-
-            dist = (ringIdx + ring.length() - idx) % ring.length();
-            bfs(ring, idx, key, keyIdx + 1, acc + dist);
-        }
-    }
-
 
 }
