@@ -16,7 +16,7 @@ public class P514 {
         }
     }
 
-    private int calcDist(int i, int j, int len) {
+    private int calcStep(int i, int j, int len) {
         int dist1 = (j + len - i) % len;
         int dist2 = (i + len - j) % len;
         return Math.min(dist1, dist2) + 1;
@@ -43,7 +43,7 @@ public class P514 {
             Node n = new Node(c);
             if (i == 0) {
                 for (int idx : idxList) {
-                    int dist = calcDist(0, idx, ring.length());
+                    int dist = calcStep(0, idx, ring.length());
                     n.acc.add(new int[]{idx, dist});
                 }
             } else {
@@ -51,7 +51,7 @@ public class P514 {
                 for (int idx : idxList) {
                     int min = Integer.MAX_VALUE;
                     for (int[] prev : acc) {
-                        int dist = prev[1] + calcDist(prev[0], idx, ring.length());
+                        int dist = prev[1] + calcStep(prev[0], idx, ring.length());
                         min = Math.min(min, dist);
                     }
                     n.acc.add(new int[]{idx, min});
