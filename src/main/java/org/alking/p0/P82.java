@@ -14,31 +14,32 @@ public class P82 {
     }
 
     public ListNode deleteDuplicates(ListNode head) {
-        HashSet<Integer> set = new HashSet<>();
-        HashSet<Integer> dup = new HashSet<>();
-        ListNode h = head;
-        while (h != null) {
-            int v = h.val;
-            if (set.contains(v)) {
-                dup.add(v);
-            }
-            set.add(v);
-            h = h.next;
-        }
         ListNode dum = new ListNode(0);
         ListNode tail = null;
-        h = head;
+        ListNode h = head;
         while (h != null) {
+            ListNode t = h;
             int v = h.val;
-            if (!dup.contains(v)) {
-                if (tail == null) {
-                    dum.next = h;
-                } else {
-                    tail.next = h;
+            int c = 1;
+            while (true) {
+                h = h.next;
+                if(h == null){
+                    break;
                 }
-                tail = h;
+                if (h.val == v) {
+                    c++;
+                } else {
+                    break;
+                }
             }
-            h = h.next;
+            if (c < 2) {
+                if (tail == null) {
+                    dum.next = t;
+                } else {
+                    tail.next = t;
+                }
+                tail = t;
+            }
         }
         if (tail != null) {
             tail.next = null;
