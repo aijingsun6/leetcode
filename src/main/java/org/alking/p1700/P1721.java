@@ -2,42 +2,38 @@ package org.alking.p1700;
 
 public class P1721 {
 
+    public static class ListNode {
+        int val;
+        ListNode next;
 
-    public void setZeroes(int[][] matrix) {
-
-        if (matrix == null || matrix.length == 0) {
-            return;
-        }
-        int iMax = matrix.length;
-        int jMax = matrix[0].length;
-        boolean[] row = new boolean[iMax];
-        boolean[] col = new boolean[jMax];
-        for(int i = 0; i < iMax;i ++){
-            for(int j = 0; j < jMax;j++){
-                if(matrix[i][j] == 0){
-                    row[i] = true;
-                    col[j] = true;
-                }
-            }
+        ListNode() {
         }
 
-        for(int i = 0; i < iMax;i++){
-            if(row[i]){
-
-                for(int j = 0; j < jMax;j++){
-                    matrix[i][j]  = 0;
-                }
-
-            }
+        ListNode(int val) {
+            this.val = val;
         }
 
-        for(int j = 0; j < jMax;j++){
-            if(col[j]){
-                for(int i = 0; i < iMax;i++){
-                    matrix[i][j] = 0;
-                }
-            }
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
         }
+    }
 
+
+    public ListNode swapNodes(ListNode head, int k) {
+        ListNode slow = head;
+        ListNode fast = head;
+        for (int i = 0; i < k - 1; i++) {
+            fast = fast.next;
+        }
+        ListNode first = fast;
+        while (fast.next != null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        int v = first.val;
+        first.val = slow.val;
+        slow.val = v;
+        return head;
     }
 }
