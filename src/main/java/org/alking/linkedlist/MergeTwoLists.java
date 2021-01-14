@@ -1,5 +1,7 @@
 package org.alking.linkedlist;
 
+import org.alking.common.ListNode;
+
 public class MergeTwoLists {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

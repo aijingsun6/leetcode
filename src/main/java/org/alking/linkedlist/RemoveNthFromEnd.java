@@ -1,5 +1,7 @@
 package org.alking.linkedlist;
 
+import org.alking.common.ListNode;
+
 public class RemoveNthFromEnd {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {

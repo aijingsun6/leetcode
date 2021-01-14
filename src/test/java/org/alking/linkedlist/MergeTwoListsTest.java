@@ -1,5 +1,6 @@
 package org.alking.linkedlist;
 
+import org.alking.common.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
 

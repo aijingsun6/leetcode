@@ -1,5 +1,7 @@
 package org.alking.linkedlist;
 
+import org.alking.common.ListNode;
+
 public class ReverseList {
 
     public ListNode reverseList(ListNode head) {
