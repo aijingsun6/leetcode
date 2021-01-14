@@ -1,15 +1,8 @@
 package org.alking.p0;
 
+import org.alking.common.ListNode;
+
 public class P86 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode partition(ListNode head, int x) {
         ListNode smallDummy = new ListNode(0);
@@ -21,7 +14,7 @@ public class P86 {
             if (v < x) {
                 if (smallTail == null) {
                     smallDummy.next = head;
-                }else {
+                } else {
                     smallTail.next = head;
                 }
                 smallTail = head;
@@ -29,7 +22,7 @@ public class P86 {
             } else {
                 if (largeTail == null) {
                     largeDummy.next = head;
-                }else {
+                } else {
                     largeTail.next = head;
                 }
                 largeTail = head;

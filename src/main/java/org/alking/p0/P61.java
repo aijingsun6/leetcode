@@ -1,15 +1,8 @@
 package org.alking.p0;
 
+import org.alking.common.ListNode;
+
 public class P61 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode rotateRight(ListNode head, int k) {
         if(head == null){
