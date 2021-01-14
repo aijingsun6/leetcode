@@ -1,27 +1,10 @@
 package org.alking.p600;
 
+import org.alking.common.TreeNode;
+
 import java.util.ArrayDeque;
 
 public class P671 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public int findSecondMinimumValue(TreeNode root) {
         if (root == null) {

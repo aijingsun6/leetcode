@@ -1,16 +1,8 @@
 package org.alking.p900;
 
+import org.alking.common.TreeNode;
+
 public class P965 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isUnivalTree(TreeNode root) {
         if (root == null) {

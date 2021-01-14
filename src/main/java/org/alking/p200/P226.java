@@ -1,16 +1,8 @@
 package org.alking.p200;
 
+import org.alking.common.TreeNode;
+
 public class P226 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode invertTree(TreeNode root) {
 

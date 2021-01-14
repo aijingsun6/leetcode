@@ -1,5 +1,6 @@
 package org.alking.p400;
 
+import org.alking.common.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,15 +9,15 @@ public class P437Test {
     @Test
     public void test(){
 
-        P437.TreeNode n1 = new P437.TreeNode(10);
-        P437.TreeNode n2 = new P437.TreeNode(5);
-        P437.TreeNode n3 = new P437.TreeNode(-3);
-        P437.TreeNode n4 = new P437.TreeNode(3);
-        P437.TreeNode n5 = new P437.TreeNode(2);
-        P437.TreeNode n6 = new P437.TreeNode(11);
-        P437.TreeNode n7 = new P437.TreeNode(3);
-        P437.TreeNode n8 = new P437.TreeNode(-2);
-        P437.TreeNode n9 = new P437.TreeNode(1);
+        TreeNode n1 = new TreeNode(10);
+        TreeNode n2 = new TreeNode(5);
+        TreeNode n3 = new TreeNode(-3);
+        TreeNode n4 = new TreeNode(3);
+        TreeNode n5 = new TreeNode(2);
+        TreeNode n6 = new TreeNode(11);
+        TreeNode n7 = new TreeNode(3);
+        TreeNode n8 = new TreeNode(-2);
+        TreeNode n9 = new TreeNode(1);
 
         n1.left = n2;
         n1.right = n3;

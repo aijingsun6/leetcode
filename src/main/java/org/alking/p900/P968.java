@@ -1,17 +1,8 @@
 package org.alking.p900;
 
+import org.alking.common.TreeNode;
+
 public class P968 {
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static final int STATUS_NONE = 0;
     public static final int STATUS_INSTALL = 1;

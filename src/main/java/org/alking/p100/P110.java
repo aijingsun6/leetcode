@@ -1,5 +1,7 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,16 +9,6 @@ import java.util.Map;
  * <a href="https://leetcode-cn.com/problems/balanced-binary-tree/">110. 平衡二叉树</a>
  */
 public class P110 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isBalanced(TreeNode root) {
         if (root == null) {

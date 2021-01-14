@@ -1,19 +1,11 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class P106 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     int post_idx;
     int[] postorder;

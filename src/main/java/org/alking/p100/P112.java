@@ -1,16 +1,8 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 public class P112 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean hasPathSum(TreeNode root, int sum) {
 

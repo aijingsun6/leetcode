@@ -1,5 +1,6 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,11 +14,11 @@ public class P530Test {
         //           384    652
         //            \       \
         //            445      699
-        P530.TreeNode n1 = new P530.TreeNode(543);
-        P530.TreeNode n2 = new P530.TreeNode(384);
-        P530.TreeNode n3 = new P530.TreeNode(652);
-        P530.TreeNode n4 = new P530.TreeNode(445);
-        P530.TreeNode n5 = new P530.TreeNode(699);
+        TreeNode n1 = new TreeNode(543);
+        TreeNode n2 = new TreeNode(384);
+        TreeNode n3 = new TreeNode(652);
+        TreeNode n4 = new TreeNode(445);
+        TreeNode n5 = new TreeNode(699);
         n1.left = n2;
         n1.right = n3;
         n2.right = n4;

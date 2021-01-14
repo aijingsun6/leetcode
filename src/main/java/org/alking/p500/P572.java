@@ -1,25 +1,8 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
+
 public class P572 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public boolean isSubtree(TreeNode s, TreeNode t) {
         if (s.val == t.val && isSame(s, t)) {

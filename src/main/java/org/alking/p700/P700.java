@@ -1,16 +1,8 @@
 package org.alking.p700;
 
+import org.alking.common.TreeNode;
+
 public class P700 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode searchBST(TreeNode root, int val) {
 

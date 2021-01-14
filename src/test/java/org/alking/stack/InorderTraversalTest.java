@@ -1,6 +1,6 @@
 package org.alking.stack;
 
-import org.alking.tree.TreeNode;
+import org.alking.common.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 

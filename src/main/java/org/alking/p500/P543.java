@@ -1,20 +1,11 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
+
 /**
  * <a href="https://leetcode-cn.com/problems/diameter-of-binary-tree/">543. 二叉树的直径</a>
  */
 public class P543 {
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private int depth(TreeNode root) {
         if (root.left == null && root.right == null) {

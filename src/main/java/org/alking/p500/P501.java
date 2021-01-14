@@ -1,18 +1,10 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
+
 import java.util.ArrayList;
 
 public class P501 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        public TreeNode(int x) {
-            val = x;
-        }
-    }
 
 
     public int[] findMode(TreeNode root) {

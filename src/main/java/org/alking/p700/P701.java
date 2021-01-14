@@ -1,25 +1,8 @@
 package org.alking.p700;
 
+import org.alking.common.TreeNode;
+
 public class P701 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {

@@ -1,5 +1,6 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,11 +9,11 @@ public class P543Test {
     @Test
     public void test(){
 
-        P543.TreeNode n1 = new P543.TreeNode(1);
-        P543.TreeNode n2 = new P543.TreeNode(2);
-        P543.TreeNode n3 = new P543.TreeNode(3);
-        P543.TreeNode n4 = new P543.TreeNode(4);
-        P543.TreeNode n5 = new P543.TreeNode(5);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
 
         n1.left = n2;
         n1.right = n3;

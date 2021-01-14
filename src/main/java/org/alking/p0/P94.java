@@ -1,19 +1,11 @@
 package org.alking.p0;
 
+import org.alking.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class P94 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> acc = new ArrayList<>();

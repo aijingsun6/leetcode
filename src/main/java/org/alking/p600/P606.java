@@ -1,16 +1,8 @@
 package org.alking.p600;
 
+import org.alking.common.TreeNode;
+
 public class P606 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public String tree2str(TreeNode t) {
         if (t == null) {

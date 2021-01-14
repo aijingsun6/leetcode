@@ -1,19 +1,11 @@
 package org.alking.p200;
 
+import org.alking.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class P257 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<String> binaryTreePaths(TreeNode root) {
         if (root == null) {

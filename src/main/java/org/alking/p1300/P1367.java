@@ -1,27 +1,9 @@
 package org.alking.p1300;
 
 import org.alking.common.ListNode;
+import org.alking.common.TreeNode;
 
 public class P1367 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     private boolean dfs(ListNode head, TreeNode root){
         if(head == null){

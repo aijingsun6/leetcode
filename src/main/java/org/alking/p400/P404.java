@@ -1,17 +1,8 @@
 package org.alking.p400;
 
+import org.alking.common.TreeNode;
+
 public class P404 {
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int sumOfLeftLeaves(TreeNode root) {
         return sumOfLeftLeaves(root, false);

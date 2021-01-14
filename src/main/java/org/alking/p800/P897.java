@@ -1,16 +1,8 @@
 package org.alking.p800;
 
+import org.alking.common.TreeNode;
+
 public class P897 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
 
     public TreeNode increasingBST(TreeNode root) {

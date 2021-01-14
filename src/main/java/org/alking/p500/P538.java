@@ -1,16 +1,9 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
+
 public class P538 {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
 
 //    public TreeNode convertBST(TreeNode root) {

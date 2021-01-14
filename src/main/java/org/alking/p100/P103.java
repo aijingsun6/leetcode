@@ -1,18 +1,10 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 import java.util.*;
 
 public class P103 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         if (root == null) {

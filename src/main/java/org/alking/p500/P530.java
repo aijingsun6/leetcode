@@ -1,17 +1,8 @@
 package org.alking.p500;
 
+import org.alking.common.TreeNode;
+
 public class P530 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
 
     public int getMinimumDifference(TreeNode root) {
         if (root == null) {

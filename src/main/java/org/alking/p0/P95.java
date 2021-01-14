@@ -1,29 +1,12 @@
 package org.alking.p0;
 
+import org.alking.common.TreeNode;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class P95 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public List<TreeNode> generateTrees(int n) {
 

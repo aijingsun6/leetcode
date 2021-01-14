@@ -1,18 +1,10 @@
 package org.alking.p200;
 
+import org.alking.common.TreeNode;
+
 import java.util.ArrayList;
 
 public class P236 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 

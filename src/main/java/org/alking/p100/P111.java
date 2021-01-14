@@ -1,16 +1,8 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 public class P111 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int minDepth(TreeNode root) {
         if (root == null) {

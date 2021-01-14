@@ -1,20 +1,12 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class P113 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
 

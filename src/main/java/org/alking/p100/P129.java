@@ -1,17 +1,8 @@
 package org.alking.p100;
 
+import org.alking.common.TreeNode;
+
 public class P129 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     private int sum = 0;
 
     public int sumNumbers(TreeNode root) {
