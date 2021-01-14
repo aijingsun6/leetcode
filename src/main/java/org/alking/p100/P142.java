@@ -1,19 +1,11 @@
 package org.alking.p100;
 
+import org.alking.common.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class P142 {
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
 
     public ListNode detectCycle(ListNode head) {

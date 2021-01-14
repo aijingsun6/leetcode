@@ -35,7 +35,6 @@ public class P127Test {
         long start = System.currentTimeMillis();
         int res = p127.ladderLength(beginWord, endWord, wordList);
         long cost = System.currentTimeMillis() - start;
-        System.out.println(String.format("cost %d ms", cost));
         Assert.assertEquals(42, res);
     }
 }

@@ -1,26 +1,10 @@
 package org.alking.p100;
 
-import java.util.ArrayDeque;
+import org.alking.common.ListNode;
+
 import java.util.LinkedList;
 
 public class P143 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) {

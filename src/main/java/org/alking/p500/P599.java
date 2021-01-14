@@ -1,6 +1,9 @@
 package org.alking.p500;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class P599 {
 

@@ -1,17 +1,10 @@
 package org.alking.p1100;
 
+import org.alking.common.ListNode;
+
 import java.util.HashMap;
 
 public class P1171 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode removeZeroSumSublists(ListNode head) {
         while (true){

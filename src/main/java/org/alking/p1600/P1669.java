@@ -1,23 +1,8 @@
 package org.alking.p1600;
 
+import org.alking.common.ListNode;
+
 public class P1669 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     private ListNode walk(ListNode head, int n){
         int c = 0;

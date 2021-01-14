@@ -3,8 +3,6 @@ package org.alking.p1300;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Random;
-
 public class P1317Test {
 
     @Test

@@ -2,7 +2,6 @@ package org.alking.easy;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-
 import java.util.List;
 
 public class UpdateMatrix {

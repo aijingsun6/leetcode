@@ -1,16 +1,8 @@
 package org.alking.p700;
 
+import org.alking.common.ListNode;
+
 public class P725 {
-
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode[] splitListToParts(ListNode root, int k) {
         int size = size(root);

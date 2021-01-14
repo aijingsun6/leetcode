@@ -1,16 +1,8 @@
 package org.alking.p100;
 
+import org.alking.common.ListNode;
+
 public class P141 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     public boolean hasCycle(ListNode head) {
 

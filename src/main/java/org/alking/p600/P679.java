@@ -12,7 +12,6 @@ public class P679 {
         for (int n : nums) {
             list.add((double) n);
         }
-        System.out.println(String.format("judgePoint24:%s",list));
         return solve(24d, list);
     }
 
@@ -36,34 +35,27 @@ public class P679 {
     private boolean solve(double target,double v, List<Double> list){
         if(Math.abs(v) < EPSILON){
             if(solve(target,list)){
-                System.out.println(String.format("===  target:%f, v:%f, %s",target,v,list));
                 return true;
             }
 
         }else {
             if (solve(target - v, list)) {
-                System.out.println(String.format("-  target:%f, v:%f, %s",target,v,list));
                 return true;
             }
             if (solve(v - target, list)) {
-                System.out.println(String.format("-- target:%f, v:%f, %s",target,v,list));
                 return true;
             }
             if (solve(target / v, list)) {
-                System.out.println(String.format("/ target:%f, v:%f, %s",target,v,list));
                 return true;
             }
             if (Math.abs(target) > EPSILON && solve(v / target, list)) {
-                System.out.println(String.format("// target:%f, v:%f, %s",target,v,list));
                 return true;
             }
             if (solve(target + v, list)) {
-                System.out.println(String.format("+ target:%f, v:%f, %s",target,v,list));
                 return true;
             }
 
             if (solve(target * v, list)) {
-                System.out.println(String.format("* %f, %f, %s",target,v,list));
                 return true;
             }
         }
@@ -77,7 +69,6 @@ public class P679 {
             double v = list.get(0);
             boolean ret = Math.abs(target - v) < EPSILON;
             if(ret){
-                System.out.println(String.format("%f",v));
             }
             return ret;
         }

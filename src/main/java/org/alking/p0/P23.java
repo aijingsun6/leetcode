@@ -1,5 +1,7 @@
 package org.alking.p0;
 
+import org.alking.common.ListNode;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -7,23 +9,6 @@ import java.util.TreeMap;
  * <a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/submissions/"></a>
  */
 public class P23 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     public static class SortNode {
         ListNode head;

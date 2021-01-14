@@ -1,18 +1,10 @@
 package org.alking.p1000;
 
+import org.alking.common.ListNode;
+
 import java.util.ArrayDeque;
-import java.util.Stack;
 
 public class P1019 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public int[] nextLargerNodes(ListNode head) {
         int n = 0;

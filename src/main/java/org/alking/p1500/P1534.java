@@ -1,7 +1,5 @@
 package org.alking.p1500;
 
-import java.util.Arrays;
-
 public class P1534 {
 
     public int countGoodTriplets(int[] arr, int a, int b, int c) {

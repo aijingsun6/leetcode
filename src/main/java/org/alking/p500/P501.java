@@ -1,7 +1,6 @@
 package org.alking.p500;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class P501 {
 
@@ -54,7 +53,6 @@ public class P501 {
     private int lastCnt = 0;
 
     private void updateAcc(int v) {
-        System.out.println(v);
         if (v == last) {
             lastCnt += 1;
         } else {

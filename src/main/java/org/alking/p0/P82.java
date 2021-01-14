@@ -1,17 +1,8 @@
 package org.alking.p0;
 
-import java.util.HashSet;
+import org.alking.common.ListNode;
 
 public class P82 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode deleteDuplicates(ListNode head) {
         ListNode dum = new ListNode(0);

@@ -1,14 +1,8 @@
 package org.alking.offer;
 
-public class O18 {
-    public static class ListNode {
-        int val;
-        ListNode next;
+import org.alking.common.ListNode;
 
-        ListNode(int x) {
-            val = x;
-        }
-    }
+public class O18 {
 
     public ListNode deleteNode(ListNode head, int val) {
 

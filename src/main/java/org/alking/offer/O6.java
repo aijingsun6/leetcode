@@ -1,20 +1,13 @@
 package org.alking.offer;
 
+import org.alking.common.ListNode;
+
 import java.util.Stack;
 
 /**
  * https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
  */
 public class O6 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public int[] reversePrint(ListNode head) {
 

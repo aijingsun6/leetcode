@@ -21,7 +21,5 @@ public class P37Test {
         };
 
         p37.solveSudoku(board);
-
-        System.out.println("ok");
     }
 }

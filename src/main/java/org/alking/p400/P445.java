@@ -1,16 +1,10 @@
 package org.alking.p400;
 
+import org.alking.common.ListNode;
+
 import java.util.Stack;
 
 public class P445 {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     private Stack<Integer> node2Stack(ListNode head) {
         Stack<Integer> stack = new Stack<>();

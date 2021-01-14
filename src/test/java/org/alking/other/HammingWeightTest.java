@@ -7,7 +7,6 @@ public class HammingWeightTest {
 
     @Test
     public void hammingWeightTest(){
-        System.out.println(Integer.toBinaryString(2));
         HammingWeight hw = new HammingWeight();
         Assert.assertEquals(3,hw.hammingWeight(11));
         Assert.assertEquals(1,hw.hammingWeight(256));

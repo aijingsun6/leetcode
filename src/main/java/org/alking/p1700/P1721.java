@@ -1,24 +1,8 @@
 package org.alking.p1700;
 
+import org.alking.common.ListNode;
+
 public class P1721 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
 
     public ListNode swapNodes(ListNode head, int k) {
         ListNode slow = head;

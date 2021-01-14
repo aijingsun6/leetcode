@@ -1,16 +1,8 @@
 package org.alking.offer;
 
+import org.alking.common.ListNode;
+
 public class O52 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     private int size(ListNode head) {
 

@@ -1,17 +1,11 @@
 package org.alking.p800;
 
+import org.alking.common.ListNode;
+
 /**
  * <a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">876. 链表的中间结点</a>
  */
 public class P876 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode middleNode(ListNode head) {
 

@@ -1,23 +1,8 @@
 package org.alking.p100;
 
+import org.alking.common.ListNode;
+
 public class P109 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     public static class TreeNode {
         int val;

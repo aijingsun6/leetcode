@@ -1,7 +1,5 @@
 package org.alking.p900;
 
-import java.util.List;
-
 public class P993 {
     public static class TreeNode {
         int val;

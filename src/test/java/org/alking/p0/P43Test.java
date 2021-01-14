@@ -3,9 +3,6 @@ package org.alking.p0;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class P43Test {
 
     @Test

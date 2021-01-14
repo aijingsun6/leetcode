@@ -1,15 +1,8 @@
 package org.alking.offer;
 
+import org.alking.common.ListNode;
+
 public class O24 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode reverseList(ListNode head) {
         ListNode h = null;

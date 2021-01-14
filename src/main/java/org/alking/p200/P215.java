@@ -1,6 +1,5 @@
 package org.alking.p200;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class P215 {

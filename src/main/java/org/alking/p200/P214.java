@@ -1,7 +1,5 @@
 package org.alking.p200;
 
-import java.util.Arrays;
-
 /**
  * https://leetcode-cn.com/problems/shortest-palindrome/
  */

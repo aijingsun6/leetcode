@@ -13,8 +13,5 @@ public class P401Test {
         List<String> res = p401.readBinaryWatch(1);
         Assert.assertEquals(10, res.size());
         res = p401.readBinaryWatch(2);
-        for (String s : res) {
-            System.out.println(s);
-        }
     }
 }

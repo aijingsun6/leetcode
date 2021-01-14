@@ -1,6 +1,5 @@
 package org.alking.p500;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class P529Test {

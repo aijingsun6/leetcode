@@ -7,7 +7,6 @@ public class P405 {
         StringBuilder str=new StringBuilder();
         while(num != 0){
             int end = num&15;//比较二进制的差异
-            //// System.out.println(end);
             str.append(hex[end]);
             //无符号右移4位
             num >>>=4;

@@ -1,19 +1,10 @@
 package org.alking.p800;
 
-import java.util.Arrays;
+import org.alking.common.ListNode;
+
 import java.util.HashSet;
-import java.util.stream.Collectors;
 
 public class P817 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public int numComponents(ListNode head, int[] G) {
 

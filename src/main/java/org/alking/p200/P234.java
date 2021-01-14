@@ -1,15 +1,8 @@
 package org.alking.p200;
 
+import org.alking.common.ListNode;
+
 public class P234 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isPalindrome(ListNode head) {
         if (head == null) {

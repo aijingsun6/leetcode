@@ -1,6 +1,6 @@
 package org.alking.p1300;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class P1365 {
 

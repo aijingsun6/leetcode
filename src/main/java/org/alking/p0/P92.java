@@ -1,15 +1,9 @@
 package org.alking.p0;
 
+import org.alking.common.ListNode;
+
 public class P92 {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
         ListNode h = null;

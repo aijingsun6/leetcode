@@ -13,6 +13,6 @@ public class P347Test {
         Assert.assertArrayEquals(new int[]{1,2},ret);
         nums = new int[]{4,1,-1,2,-1,2,3};
         ret = p347.topKFrequent(nums,2);
-        Assert.assertArrayEquals(new int[]{-1,2},ret);
+        Assert.assertArrayEquals(new int[]{2,-1},ret);
     }
 }

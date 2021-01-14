@@ -1,7 +1,5 @@
 package org.alking.p1300;
 
-import java.util.Arrays;
-
 public class P1346 {
 
     public boolean checkIfExist(int[] arr) {

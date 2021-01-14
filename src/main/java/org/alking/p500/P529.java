@@ -75,7 +75,6 @@ public class P529 {
                             changeBoard(board, x, y, true);
                             Position p2 = new Position(x, y);
                             queue.addLast(p2);
-                            System.out.println(p2);
                         }
                         visit[x][y] = true;
                     }

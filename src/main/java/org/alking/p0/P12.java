@@ -1,7 +1,6 @@
 package org.alking.p0;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class P12 {

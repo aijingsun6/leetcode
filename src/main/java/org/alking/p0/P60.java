@@ -1,8 +1,6 @@
 package org.alking.p0;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class P60 {
 

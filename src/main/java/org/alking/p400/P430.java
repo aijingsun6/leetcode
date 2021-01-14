@@ -59,7 +59,6 @@ public class P430 {
 
         if(n != null){
             while (n != null){
-                System.out.println(n.val);
                 n = n.next;
             }
         }
