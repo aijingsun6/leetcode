@@ -1,18 +1,11 @@
 package org.alking.mian;
 
+import org.alking.common.ListNode;
+
 /**
  * https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci/
  */
 public class M0202 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public int kthToLast(ListNode head, int k) {
         ListNode slow = head;

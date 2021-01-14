@@ -1,18 +1,11 @@
 package org.alking.mian;
 
+import org.alking.common.ListNode;
+
 /**
  * https://leetcode-cn.com/problems/partition-list-lcci/
  */
 public class M0204 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode partition(ListNode head, int x) {
 

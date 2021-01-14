@@ -1,18 +1,11 @@
 package org.alking.mian;
 
+import org.alking.common.ListNode;
+
 /**
  * https://leetcode-cn.com/problems/remove-duplicate-node-lcci/
  */
 public class M0201 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode removeDuplicateNodes(ListNode head) {
         boolean[] visit = new boolean[20001];
