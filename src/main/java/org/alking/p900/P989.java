@@ -1,74 +1,50 @@
 package org.alking.p900;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class P989 {
 
     public List<Integer> addToArrayForm(int[] A, int K) {
 
-        List<Integer> kList = new ArrayList<>();
-        while (K > 0){
-            kList.add(0, K % 10);
-            K = K /10;
+        Stack<Integer> stack = new Stack<>();
+        for (int v : A) {
+            stack.push(v);
+        }
+        String s = String.valueOf(K);
+        Stack<Integer> ks = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            ks.push(s.charAt(i) - '0');
+        }
+        int carry = 0;
+        LinkedList<Integer> acc = new LinkedList<>();
+        int a;
+        int b;
+        int v;
+        while (!stack.isEmpty() && !ks.isEmpty()) {
+            a = stack.pop();
+            b = ks.pop();
+            v = a + b + carry;
+            acc.addFirst(v % 10);
+            carry = v / 10;
         }
 
-        int aIdx = A.length - 1;
-        int kIdx = kList.size() - 1;
-
-        List<Integer> acc = new ArrayList<>();
-        boolean add = false;
-        while (aIdx >= 0 && kIdx >= 0){
-
-
-            int v = A[aIdx] + kList.get(kIdx);
-            if(add){
-                v = v + 1;
-            }
-
-            if(v >= 10){
-                acc.add(0, v %10);
-                add = true;
-            }else {
-                acc.add(0,v);
-                add = false;
-            }
-            aIdx -= 1;
-            kIdx -= 1;
-
+        Stack<Integer> ss = null;
+        if (!stack.isEmpty()) {
+            ss = stack;
+        } else if (!ks.isEmpty()) {
+            ss = ks;
+        }else {
+            ss = new Stack<>();
         }
-        while (aIdx >= 0){
-            int v = A[aIdx];
-            if(add){
-                v = v + 1;
-            }
-            if(v >= 10){
-                acc.add(0, v %10);
-                add = true;
-            }else {
-                acc.add(0,v);
-                add = false;
-            }
-            aIdx -=1;
+        while (!ss.isEmpty()) {
+            v = ss.pop() + carry;
+            acc.addFirst(v % 10);
+            carry = v / 10;
+        }
+        if (carry > 0) {
+            acc.addFirst(carry);
         }
 
-        while(kIdx >= 0){
-            int v = kList.get(kIdx);
-            if(add){
-                v = v + 1;
-            }
-            if(v >= 10){
-                acc.add(0, v %10);
-                add = true;
-            }else {
-                acc.add(0,v);
-                add = false;
-            }
-            kIdx -= 1;
-        }
-        if(add){
-            acc.add(0,1);
-        }
         return acc;
     }
 }
