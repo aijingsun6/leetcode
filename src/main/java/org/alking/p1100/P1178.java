@@ -1,64 +1,45 @@
 package org.alking.p1100;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class P1178 {
 
     public List<Integer> findNumOfValidWords(String[] words, String[] puzzles) {
-        List<WordHash> pl = Arrays.stream(puzzles).map(x -> toHash(x)).collect(Collectors.toList());
-        List<WordHash> wl = Arrays.stream(words).map(x -> toHash(x)).collect(Collectors.toList());
-        List<Integer> acc = new ArrayList<>();
-        for (WordHash p : pl) {
-            acc.add(calcNum(p, wl));
-        }
-        return acc;
-    }
+        Map<Integer, Integer> frequency = new HashMap<Integer, Integer>();
 
-    public WordHash toHash(String s) {
-        int firstIdx = s.charAt(0) - 'a';
-        int hash = 0;
-        int shift;
-        for (int i = 0; i < s.length(); i++) {
-            shift = s.charAt(i) - 'a';
-            hash |= 1 << shift;
-        }
-        return new WordHash(firstIdx, hash);
-    }
-
-
-    public boolean isAnswer(WordHash puzz, WordHash word) {
-
-        // check first
-        if ((word.hash & (1 << puzz.firstIdx)) < 1) {
-            return false;
-        }
-        return puzz.hash == (puzz.hash | word.hash);
-    }
-
-    public int calcNum(WordHash puzz, List<WordHash> words) {
-        int acc = 0;
-        for (WordHash w : words) {
-            if (isAnswer(puzz, w)) {
-                acc++;
+        for (String word : words) {
+            int mask = 0;
+            for (int i = 0; i < word.length(); ++i) {
+                char ch = word.charAt(i);
+                mask |= (1 << (ch - 'a'));
+            }
+            if (Integer.bitCount(mask) <= 7) {
+                frequency.put(mask, frequency.getOrDefault(mask, 0) + 1);
             }
         }
-        return acc;
-    }
 
-    public static class WordHash {
+        List<Integer> ans = new ArrayList<Integer>();
+        for (String puzzle : puzzles) {
+            int total = 0;
+            int mask = 0;
+            for (int i = 1; i < 7; ++i) {
+                mask |= (1 << (puzzle.charAt(i) - 'a'));
+            }
+            int subset = mask;
+            do {
+                int s = subset | (1 << (puzzle.charAt(0) - 'a'));
+                if (frequency.containsKey(s)) {
+                    total += frequency.get(s);
+                }
+                subset = (subset - 1) & mask;
+            } while (subset != mask);
 
-        int firstIdx;
-        int hash;
-
-        public WordHash(int firstIdx, int hash) {
-            this.firstIdx = firstIdx;
-            this.hash = hash;
+            ans.add(total);
         }
-
+        return ans;
     }
-
 
 }
