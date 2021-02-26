@@ -7,55 +7,58 @@ import java.util.stream.Collectors;
 
 public class P1178 {
 
-    private static final int CACHE_SIZE = 'z' - 'a' + 2;
-    private static final int FIRST_IDX = 'z' - 'a' + 1;
-
     public List<Integer> findNumOfValidWords(String[] words, String[] puzzles) {
+        List<WordHash> pl = Arrays.stream(puzzles).map(x -> toHash(x)).collect(Collectors.toList());
+        List<WordHash> wl = Arrays.stream(words).map(x -> toHash(x)).collect(Collectors.toList());
         List<Integer> acc = new ArrayList<>();
-        List<int[]> wordCacheList = Arrays.stream(words).map(x -> word2cache(x)).collect(Collectors.toList());
-        List<int[]> puzzCacheList = Arrays.stream(puzzles).map(x -> word2cache(x)).collect(Collectors.toList());
-
-        for (int[] puzz : puzzCacheList) {
-            acc.add(calcNum(puzz,wordCacheList));
+        for (WordHash p : pl) {
+            acc.add(calcNum(p, wl));
         }
         return acc;
     }
 
-    private int[] word2cache(String word) {
-        int[] ret = new int[CACHE_SIZE];
-        //
-        char f = word.charAt(0);
-        ret[f - 'a']++;
-        ret[FIRST_IDX] = f - 'a';
-
-        for (int i = 1; i < word.length(); i++) {
-            char c = word.charAt(i);
-            ret[c - 'a']++;
+    public WordHash toHash(String s) {
+        int firstIdx = s.charAt(0) - 'a';
+        int hash = 0;
+        int shift;
+        for (int i = 0; i < s.length(); i++) {
+            shift = s.charAt(i) - 'a';
+            hash |= 1 << shift;
         }
-        return ret;
+        return new WordHash(firstIdx, hash);
     }
 
-    private int calcNum(int[] puzz, List<int[]> words) {
+
+    public boolean isAnswer(WordHash puzz, WordHash word) {
+
+        // check first
+        if ((word.hash & (1 << puzz.firstIdx)) < 1) {
+            return false;
+        }
+        return puzz.hash == (puzz.hash | word.hash);
+    }
+
+    public int calcNum(WordHash puzz, List<WordHash> words) {
         int acc = 0;
-        for (int[] w : words) {
-            if (isPuzz(puzz, w)) {
+        for (WordHash w : words) {
+            if (isAnswer(puzz, w)) {
                 acc++;
             }
         }
         return acc;
     }
 
-    private boolean isPuzz(int[] puzz, int[] word) {
-        // check first char
-        if (word[puzz[FIRST_IDX]] < 1) {
-            return false;
+    public static class WordHash {
+
+        int firstIdx;
+        int hash;
+
+        public WordHash(int firstIdx, int hash) {
+            this.firstIdx = firstIdx;
+            this.hash = hash;
         }
-        int max = 'z' - 'a' + 1;
-        for (int i = 0; i < max; i++) {
-            if (word[i] > 0 && puzz[i] < 1) {
-                return false;
-            }
-        }
-        return true;
+
     }
+
+
 }
