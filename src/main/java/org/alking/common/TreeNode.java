@@ -3,6 +3,7 @@ package org.alking.common;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class TreeNode {
     public int val;
@@ -100,6 +101,33 @@ public class TreeNode {
             order(root.right, acc);
         } else {
             acc.add(null);
+        }
+    }
+
+    public void orderByStack(TreeNode root,List<TreeNode> acc){
+
+        if(root == null){
+            return;
+        }
+
+        TreeNode p = root;
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (p != null || !stack.isEmpty()){
+
+            while (p != null){
+                stack.push(p);
+                p = p.left;
+            }
+
+            // p = null
+            if(!stack.isEmpty()){
+                TreeNode q = stack.pop();
+                acc.add(q);// foreach
+                if(q.right != null){
+                    p = q.right;
+                }
+            }
         }
     }
 

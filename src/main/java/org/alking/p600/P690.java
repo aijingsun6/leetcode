@@ -12,28 +12,28 @@ public class P690 {
         public List<Integer> subordinates;
     }
 
+    private final HashMap<Integer,Employee> map = new HashMap<>();
+
+    private int acc = 0;
+
     public int getImportance(List<Employee> employees, int id) {
-        HashMap<Integer, Employee> map = new HashMap<>();
+        map.clear();
         for (Employee e : employees) {
             map.put(e.id, e);
         }
-        int sum = 0;
-        ArrayDeque<Integer> queue = new ArrayDeque<>();
-        queue.addLast(id);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                Integer first = queue.removeFirst();
-                Employee e = map.get(first);
-                if (e != null) {
-                    sum += e.importance;
-                    queue.addAll(e.subordinates);
-                }
-            }
-        }
-        return sum;
-
+        acc = 0;
+        bfs(map.get(id));
+        return acc;
     }
 
+    private void bfs(Employee e){
+        acc += e.importance;
+        for(int sub: e.subordinates){
+            Employee e2 = map.get(sub);
+            if (e2 != null){
+                bfs(e2);
+            }
+        }
+    }
 
 }

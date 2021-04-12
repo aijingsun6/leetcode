@@ -1,5 +1,7 @@
 package org.alking.p200;
 
+import java.util.Arrays;
+
 public class P283 {
 
     public void moveZeroes(int[] nums) {
@@ -7,21 +9,14 @@ public class P283 {
         if (nums == null || nums.length < 2) {
             return;
         }
-        int left = 0;
-        int right = 0;
-        while (left < nums.length) {
-            if (nums[left] == 0) {
-                right = Math.max(left,right);
-                while (right < nums.length && nums[right] == 0) {
-                    right++;
-                }
-                if(right >= nums.length){
-                    break;
-                }
-                nums[left] = nums[right];
-                nums[right] = 0;
+
+        int idx = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] != 0){
+                nums[idx++] = nums[i];
             }
-            left++;
         }
+        Arrays.fill(nums,idx,nums.length,0);
+
     }
 }

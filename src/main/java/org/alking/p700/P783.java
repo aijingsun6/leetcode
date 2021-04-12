@@ -2,39 +2,43 @@ package org.alking.p700;
 
 import org.alking.common.TreeNode;
 
+import java.util.ArrayDeque;
+
 public class P783 {
 
+    private int min = Integer.MAX_VALUE;
+    ArrayDeque<Integer> queue = new ArrayDeque<>();
     public int minDiffInBST(TreeNode root) {
         if (root == null) {
             return -1;
         }
-        int min = Integer.MAX_VALUE;
-        if (root.left != null) {
-            min = Math.min(min, root.val - findMax(root.left));
-            min = Math.min(min, minDiffInBST(root.left));
-        }
-        if (root.right != null) {
-            min = Math.min(min, findMin(root.right) - root.val);
-            min = Math.min(min, minDiffInBST(root.right));
-        }
+        min = Integer.MAX_VALUE;
+        queue.clear();
+        dfs(root);
         return min;
     }
 
-    private int findMax(TreeNode root) {
-        int res = root.val;
-        while (root != null) {
-            res = Math.max(res, root.val);
-            root = root.right;
+    private void appendQueue(Integer v) {
+        if (queue.isEmpty()) {
+            queue.addLast(v);
+            return;
         }
-        return res;
+        int last = queue.getLast();
+        min = Math.min(min, v - last);
+        queue.addLast(v);
+        queue.removeFirst();
     }
 
-    private int findMin(TreeNode root) {
-        int res = root.val;
-        while (root != null) {
-            res = Math.min(res, root.val);
-            root = root.left;
+    private void dfs(TreeNode root) {
+
+        if (root.left != null) {
+            dfs(root.left);
         }
-        return res;
+        appendQueue(root.val);
+        if (root.right != null) {
+            dfs(root.right);
+        }
     }
+
+
 }
