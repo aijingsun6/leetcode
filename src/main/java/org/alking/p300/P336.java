@@ -1,12 +1,8 @@
 package org.alking.p300;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class P336 {
-
-    private static final int SIZE = 'z' - 'a' + 1;
 
     public static class TrieNode {
 
@@ -20,7 +16,7 @@ public class P336 {
 
         private int charIdx;
 
-        private TrieNode[] map = new TrieNode[SIZE];
+        private HashMap<Character, TrieNode> map = new HashMap<>();
 
         public TrieNode() {
 
@@ -33,14 +29,15 @@ public class P336 {
             TrieNode node = this;
             for (int i = 0; i < word.length(); i++) {
                 char c = word.charAt(i);
-                int idx = c - 'a';
-                if (node.map[idx] == null) {
-                    node.map[idx] = new TrieNode();
-                    node.map[idx].c = c;
-                    node.map[idx].charIdx = i;
+                if (!node.map.containsKey(c)) {
+                    TrieNode n = new TrieNode();
+                    n.c = c;
+                    n.charIdx = i;
+                    node.map.put(c, n);
+                    node = n;
+                } else {
+                    node = node.map.get(c);
                 }
-                node = node.map[idx];
-
             }
             node.leaf = true;
             node.word = word;
@@ -80,11 +77,8 @@ public class P336 {
                 acc.add(node.index);
             }
         }
-        for (int i = 0; i < SIZE; i++) {
-            TrieNode n = node.map[i];
-            if (n != null) {
-                procDfs(root, n, acc);
-            }
+        for(Map.Entry<Character,TrieNode> e: node.map.entrySet()){
+            procDfs(root, e.getValue(), acc);
         }
     }
 
@@ -103,40 +97,28 @@ public class P336 {
         }
         if (node.leaf) {
             // node 是叶子,只需要判断revNode的子节点即可
-            for (int i = 0; i < SIZE; i++) {
-                TrieNode n = revNode.map[i];
-                if( n != null){
-                    List<Integer> dfs = dfs(n);
-                    for (int j : dfs) {
-                        addAcc(node.index, j);
-                    }
+            for (Map.Entry<Character, TrieNode> e : revNode.map.entrySet()) {
+                List<Integer> dfs = dfs(e.getValue());
+                for (int j : dfs) {
+                    addAcc(node.index, j);
                 }
-
             }
-
         }
 
         if (revNode.leaf) {
-            for (int i = 0; i < SIZE; i++) {
-                TrieNode n = node.map[i];
-                if(n != null){
-                    List<Integer> dfs = dfs(n);
-                    for (int j : dfs) {
-                        addAcc(j,revNode.index);
-                    }
+            for (Map.Entry<Character, TrieNode> e : node.map.entrySet()) {
+                List<Integer> dfs = dfs(e.getValue());
+                for (int j : dfs) {
+                    addAcc(j, revNode.index);
                 }
             }
         }
 
-        // node 和 revNode 都不是叶子
-        for (int i = 0; i < SIZE; i++) {
-            TrieNode n = node.map[i];
-            TrieNode rn = revNode.map[i];
-            if (n != null && rn != null) {
-                proc(n, rn);
+        for (Map.Entry<Character, TrieNode> e : node.map.entrySet()) {
+            if (revNode.map.containsKey(e.getKey())) {
+                proc(e.getValue(), revNode.map.get(e.getKey()));
             }
         }
-
     }
 
 
