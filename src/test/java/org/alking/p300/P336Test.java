@@ -18,5 +18,13 @@ public class P336Test {
         result = p336.palindromePairs(words);
         Assert.assertEquals(2, result.size());
 
+        words = new String[]{"a",""};
+        result = p336.palindromePairs(words);
+        Assert.assertEquals(2, result.size());
+
+        words = new String[]{"a","aa","aaa"};
+        result = p336.palindromePairs(words);
+        Assert.assertEquals(6, result.size());
+
     }
 }

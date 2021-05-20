@@ -18,6 +18,8 @@ public class P336 {
 
         private char c;
 
+        private int charIdx;
+
         private TrieNode[] map = new TrieNode[SIZE];
 
         public TrieNode() {
@@ -35,6 +37,7 @@ public class P336 {
                 if (node.map[idx] == null) {
                     node.map[idx] = new TrieNode();
                     node.map[idx].c = c;
+                    node.map[idx].charIdx = i;
                 }
                 node = node.map[idx];
 
@@ -48,14 +51,14 @@ public class P336 {
     private List<List<Integer>> acc = new ArrayList<>();
 
     private boolean isPalin(final String s) {
-        return isPalin(s.toCharArray(), 0, s.length());
+        return isPalin(s, 0, s.length());
     }
 
-    private boolean isPalin(char[] arr, int start, int end) {
+    private boolean isPalin(final String s, final int start, final int end) {
         int left = start;
         int right = end - 1;
         while (left < right) {
-            if (arr[left] != arr[right]) {
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
             left += 1;
@@ -65,71 +68,73 @@ public class P336 {
     }
 
 
-    private int maxSize = 0;
-    private List<Integer> dfsAcc = new ArrayList<>();
-    char[] dfsArr;
-    int dfsSize = 0;
-
     private List<Integer> dfs(TrieNode node) {
-        dfsAcc = new ArrayList<>();
-        dfsArr = new char[maxSize];
-        dfsSize = 0;
-        procDfs(node);
-        return dfsAcc;
+        ArrayList<Integer> acc = new ArrayList<>();
+        procDfs(node, node, acc);
+        return acc;
     }
 
-    private void procDfs(TrieNode node) {
+    private void procDfs(TrieNode root, TrieNode node, List<Integer> acc) {
         if (node.leaf) {
-            if (isPalin(dfsArr, 0, dfsSize)) {
-                dfsAcc.add(node.index);
+            if (isPalin(node.word, root.charIdx, node.word.length())) {
+                acc.add(node.index);
             }
-            return;
         }
-
         for (int i = 0; i < SIZE; i++) {
             TrieNode n = node.map[i];
             if (n != null) {
-                dfsArr[dfsSize++] = (char) ('a' + i);
-                procDfs(n);
-                dfsSize--;
+                procDfs(root, n, acc);
             }
         }
+    }
+
+    private void addAcc(int i,int j){
+        if(i == j){
+            return;
+        }
+        acc.add(Arrays.asList(i, j));
     }
 
     private void proc(TrieNode node, TrieNode revNode) {
 
         if (node.leaf && revNode.leaf) {
             // 理想情况
-            acc.add(Arrays.asList(node.index, revNode.index));
-            return;
+            addAcc(node.index, revNode.index);
         }
+        if (node.leaf) {
+            // node 是叶子,只需要判断revNode的子节点即可
+            for (int i = 0; i < SIZE; i++) {
+                TrieNode n = revNode.map[i];
+                if( n != null){
+                    List<Integer> dfs = dfs(n);
+                    for (int j : dfs) {
+                        addAcc(node.index, j);
+                    }
+                }
+
+            }
+
+        }
+
+        if (revNode.leaf) {
+            for (int i = 0; i < SIZE; i++) {
+                TrieNode n = node.map[i];
+                if(n != null){
+                    List<Integer> dfs = dfs(n);
+                    for (int j : dfs) {
+                        addAcc(j,revNode.index);
+                    }
+                }
+            }
+        }
+
+        // node 和 revNode 都不是叶子
         for (int i = 0; i < SIZE; i++) {
             TrieNode n = node.map[i];
             TrieNode rn = revNode.map[i];
-
             if (n != null && rn != null) {
                 proc(n, rn);
-                continue;
             }
-            if (n == null && rn == null) {
-                continue;
-            }
-            if (n == null) {
-                List<Integer> dfs = dfs(rn);
-                for (int j : dfs) {
-                    if (node.index != j) {
-                        acc.add(Arrays.asList(node.index, j));
-                    }
-                }
-            } else {
-                List<Integer> dfs = dfs(n);
-                for (int j : dfs) {
-                    if (j != revNode.index) {
-                        acc.add(Arrays.asList(j, revNode.index));
-                    }
-                }
-            }
-
         }
 
     }
@@ -140,13 +145,11 @@ public class P336 {
         TrieNode node = new TrieNode();
         TrieNode reverseNode = new TrieNode();
         int emptyIdx = -1;
-        maxSize = 0;
         for (int i = 0; i < words.length; i++) {
             String w = words[i];
             if (w.isEmpty()) {
                 emptyIdx = i;
             } else {
-                maxSize = Math.max(maxSize, w.length());
                 node.insert(i, w);
                 String rw = new StringBuilder(w).reverse().toString();
                 reverseNode.insert(i, rw);
