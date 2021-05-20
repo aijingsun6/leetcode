@@ -5,11 +5,10 @@ public class P172 {
     public int trailingZeroes(int n) {
 
         int acc = 0;
-        int p = 5;
-        while (n > p) {
-            int m = n / p;
+        while (n > 0) {
+            int m = n / 5;
             acc += m;
-            p = p * 5;
+            n = n / 5;
         }
         return acc;
 
