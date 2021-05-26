@@ -14,14 +14,17 @@ public class P664 {
 
         // dp[0][0] = 1
 
-        // dp[0][1] = .....
-        // dp[1][1] = 1
 
-        // dp[0][2] = ...
-        // dp[1][2] = ...
+        // dp[1][1] = 1
+        // dp[0][1] = .....
+
+
+
         // dp[2][2] = 1
+        // dp[1][2] = ...
+        // dp[0][2] = ...
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
+            for (int j = i; j >= 0; j--) {
                 if (i == j) {
                     continue;
                 }
@@ -31,14 +34,11 @@ public class P664 {
                 }
 
                 int min = Integer.MAX_VALUE;
-
                 for (int k = j; k < i; k++) {
-                    if (s.charAt(i) == s.charAt(k)) {
-                        int v = dp[j][k - 1] + dp[k][i - 1];
-                        min = Math.min(v, min);
-                    }
+                    int v = dp[j][k] + dp[k+1][i];
+                    min = Math.min(v, min);
                 }
-                dp[j][i] = Math.min(dp[j][i - 1] + 1,min);
+                dp[j][i] = min;
             }
         }
         return dp[0][n - 1];
