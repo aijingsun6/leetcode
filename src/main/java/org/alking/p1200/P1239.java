@@ -20,27 +20,18 @@ public class P1239 {
     }
 
     private boolean check(String s) {
-        if(!checkSelf(s)){
-            return false;
-        }
-        int n = s.length();
-        for (int i = 0; i < n; i++) {
-            if (cache[s.charAt(i)]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean checkSelf(String s){
         boolean[] tmp = new boolean['z'-'a'+1];
         int n = s.length();
         for (int i = 0; i < n; i++) {
             int idx = s.charAt(i)-'a';
             if (tmp[idx]) {
                 return false;
+            }else{
+                tmp[idx] = true;
             }
-            tmp[idx] = true;
+            if (cache[s.charAt(i)]) {
+                return false;
+            }
         }
         return true;
     }
