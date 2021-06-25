@@ -15,7 +15,7 @@ public class P752 {
     private final int VALUE_MIN = 0;
     private final int VALUE_MAX = 10000;
 
-    private final char[] ARRAY = new char[4];
+    private final int[] ARRAY = new int[4];
 
     private int[] VISIT = new int[VALUE_MAX];
 
@@ -30,10 +30,10 @@ public class P752 {
 
     private int calcValue() {
         int acc = 0;
-        acc += 1000 * (ARRAY[0] - '0');
-        acc += 100 * (ARRAY[1] - '0');
-        acc += 10 * (ARRAY[2] - '0');
-        acc += (ARRAY[3] - '0');
+        acc += 1000 * (ARRAY[0]);
+        acc += 100 * (ARRAY[1]);
+        acc += 10 * (ARRAY[2]);
+        acc += (ARRAY[3]);
         return acc;
     }
 
@@ -44,26 +44,28 @@ public class P752 {
         return VISIT[v] == STATE_ZERO;
     }
 
-    private List<Integer> nearBy(int v) {
-        final List<Integer> acc = new ArrayList<>();
-
+    private void fillArray(int v) {
         int[] op = new int[]{1000, 100, 10, 1};
         for (int i = 0; i < 4; i++) {
-            ARRAY[i] = (char) (v / op[i] + '0');
+            ARRAY[i] = v / op[i];
             v = v % op[i];
         }
+    }
+
+    private List<Integer> nearBy(int v) {
+        final List<Integer> acc = new ArrayList<>();
+        fillArray(v);
         for (int i = 0; i < 4; i++) {
-            char old = ARRAY[i];
-            int n = old - '0';
-            int n2 = (10 + n - 1) % 10;
-            ARRAY[i] = (char) (n2 + '0');
+            int old = ARRAY[i];
+            int n2 = (10 + old - 1) % 10;
+            ARRAY[i] = n2;
             int value = calcValue();
             if (checkValue(value)) {
                 acc.add(value);
             }
 
-            n2 = (10 + n + 1) % 10;
-            ARRAY[i] = (char) (n2 + '0');
+            n2 = (10 + old + 1) % 10;
+            ARRAY[i] = n2;
             value = calcValue();
             if (checkValue(value)) {
                 acc.add(value);
