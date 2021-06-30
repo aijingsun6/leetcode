@@ -1,9 +1,6 @@
 package org.alking.common;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class TreeNode {
     public int val;
@@ -199,4 +196,15 @@ public class TreeNode {
         root.right = sortedArrayToBST(nums, mid + 1, end);
         return root;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TreeNode)) return false;
+        TreeNode treeNode = (TreeNode) o;
+        return val == treeNode.val &&
+                Objects.equals(left, treeNode.left) &&
+                Objects.equals(right, treeNode.right);
+    }
+
 }
