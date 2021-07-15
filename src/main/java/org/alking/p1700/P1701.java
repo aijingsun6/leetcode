@@ -6,7 +6,7 @@ public class P1701 {
 
         int endTime = 0;
         int waitSum = 0;
-        final int N = customers.length;
+        final long N = customers.length;
         for (int[] customer : customers) {
             endTime = Math.max(endTime, customer[0]) + customer[1];
             waitSum += (endTime - customer[0]);
