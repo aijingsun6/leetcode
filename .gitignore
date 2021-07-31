@@ -4,3 +4,6 @@ build/**
 logs/**
 .gradle
 out
+gradlew
+gradlew.bat
+gradle/**
