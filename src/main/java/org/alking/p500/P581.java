@@ -9,7 +9,8 @@ public class P581 {
         }
         final int N = nums.length;
 
-        // find right ptr
+        // 找到右索引
+        // 第一个不满足：nums[rightPtr] >= max(nums[0:rightPtr-1]) 条件的索引
         int[] maxArray = new int[N];
         int max = nums[0];
         for (int i = 0; i < N; i++) {
