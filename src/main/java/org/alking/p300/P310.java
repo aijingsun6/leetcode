@@ -1,62 +1,58 @@
 package org.alking.p300;
 
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class P310 {
 
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-
-        boolean[][] conj = new boolean[n][n];
+        if(n < 1){
+            return Collections.emptyList();
+        }
+        if(n < 2){
+            return Arrays.asList(0);
+        }
+        if(n < 3){
+            // n = 2
+            return Arrays.asList(0,1);
+        }
+        int[] rudu = new int[n];
+        ArrayList<Integer>[] adj = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adj[i] = new ArrayList<>();
+        }
         for (int[] e : edges) {
-            int x = e[0];
-            int y = e[1];
-            conj[x][y] = true;
-            conj[y][x] = true;
+            rudu[e[0]]++;
+            rudu[e[1]]++;
+            adj[e[0]].add(e[1]);
+            adj[e[1]].add(e[0]);
         }
 
-        List<Integer> result = new ArrayList<>();
-        int min = Integer.MAX_VALUE;
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+        // find rudu = 1
+        int left = n;
         for (int i = 0; i < n; i++) {
-            int h = height(conj, n, i);
-            if (h < min) {
-                result.clear();
-                result.add(i);
-                min = h;
-            } else if (h == min) {
-                result.add(i);
+            if (rudu[i] == 1) {
+                queue.addLast(i);
+                left --;
             }
         }
-        return result;
-    }
 
-    private int height(boolean[][] conj, int n, int start) {
-        boolean[] visit = new boolean[n];
-        ArrayDeque<Integer> queue = new ArrayDeque<>();
-        queue.addLast(start);
-        visit[start] = true;
-        int acc = 0;
-        // bfs
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int idx = queue.removeFirst();
-                for (int j = 0; j < n; j++) {
-                    if (conj[idx][j] && !visit[j]) {
+        while (left > 0) {
+            int s = queue.size();
+            for (int i = 0; i < s; i++) {
+                int pop = queue.removeFirst();
+                for(int j : adj[pop]){
+                    if(--rudu[j] == 1){
                         queue.addLast(j);
-                        visit[j] = true;
+                        left --;
                     }
                 }
 
             }
-            if(!queue.isEmpty()){
-                acc += 1;
-            }
-
         }
-        return acc;
+
+        return new ArrayList<>(queue);
     }
+
 
 }
