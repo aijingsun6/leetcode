@@ -1,6 +1,5 @@
 package org.alking.p700;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,34 +8,23 @@ public class P797 {
     private List<List<Integer>> acc = new ArrayList<>();
 
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-
         acc.clear();
         final int N = graph.length;
-        int[] rudu = new int[N];
-        for (int i = 0; i < N; i++) {
-            for (int j : graph[i]) {
-                rudu[j]++;
-            }
-        }
-//        for (int i = 0; i < N; i++) {
-//            if (rudu[i] == 0) {
-//                dfs(i, graph, new ArrayDeque<>());
-//            }
-//        }
-
-        dfs(0, graph, new ArrayDeque<>());
+        dfs(0, N - 1, graph, new ArrayList<>());
         return acc;
     }
 
-    private void dfs(int node, int[][] graph, ArrayDeque<Integer> q) {
-        q.addLast(node);
-        if(node == graph.length-1){
+    private void dfs(int node, int target, int[][] graph, ArrayList<Integer> q) {
+        q.add(node);
+        if (node == target) {
             acc.add(new ArrayList<>(q));
+            q.remove(q.size()-1);
+            return;
         }
         for (int j : graph[node]) {
-            dfs(j, graph, q);
+            dfs(j, target, graph, q);
         }
-        q.removeLast();
+        q.remove(q.size()-1);
     }
 
 }
