@@ -47,19 +47,18 @@ public class P1361 {
         //广度优先遍历
         boolean[] visit = new boolean[n];
         ArrayDeque<Integer> queue = new ArrayDeque<>();
-        int count = 1;
+        int count = 0;
         queue.addLast(root.get(0));
-        visit[root.get(0)] = true;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int p = queue.removeFirst();
+                if (visit[p]) {
+                    return false;
+                }
+                visit[p] = true;
+                count++;
                 for (int j : adj[p]) {
-                    if (visit[j]) {
-                        return false;
-                    }
-                    visit[j] = true;
-                    count++;
                     queue.addLast(j);
                 }
             }
