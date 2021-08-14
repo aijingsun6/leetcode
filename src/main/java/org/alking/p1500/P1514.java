@@ -1,6 +1,8 @@
 package org.alking.p1500;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  * TODO: dfs会超时
@@ -9,48 +11,57 @@ public class P1514 {
 
     public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
 
-        result = 0d;
-        visit = new boolean[n];
-        graph = new ArrayList[n];
-        prob = new double[n][n];
+        ArrayList<NodeProb>[] graph = new ArrayList[n];
         for (int i = 0; i < n; i++) {
-            graph[i] = new ArrayList<>();
+            graph[i] = new ArrayList<>(1);
         }
+
         for (int i = 0; i < edges.length; i++) {
             int x = edges[i][0];
             int y = edges[i][1];
-            graph[x].add(y);
-            graph[y].add(x);
-            prob[x][y] = succProb[i];
-            prob[y][x] = succProb[i];
+            double prob = succProb[i];
+            graph[x].add(new NodeProb(y, prob));
+            graph[y].add(new NodeProb(x, prob));
         }
 
-        dfs(start, end, 1d);
-        return result;
-    }
-
-    private ArrayList<Integer>[] graph;
-    private double[][] prob;
-    private double result = 0d;
-    private boolean[] visit;
-
-    private void dfs(int node, int end, double acc) {
-
-        if (visit[node]) {
-            return;
-        }
-
-        if (node == end) {
-            if (acc > result) {
-                result = acc;
+        double[] dp = new double[n];
+        dp[start] = 1d;
+        PriorityQueue<NodeProb> queue = new PriorityQueue<>(new Comparator<NodeProb>() {
+            @Override
+            public int compare(NodeProb o1, NodeProb o2) {
+                return o2.prob > o1.prob ? 1 : -1;
             }
-            return;
+        });
+
+        queue.add(new NodeProb(start, 1d));
+        while (!queue.isEmpty()) {
+            NodeProb p = queue.poll();
+
+            int node = p.node;
+            double prob = p.prob;
+
+            for (NodeProb np : graph[node]) {
+                int next = np.node;
+                double nextProb = prob * np.prob;
+                if(nextProb > dp[next]){
+                    dp[next] = nextProb;
+                    queue.add(new NodeProb(next,nextProb));
+                }
+            }
+
         }
-        visit[node] = true;
-        for (int j : graph[node]) {
-            dfs(j, end, acc * prob[node][j]);
-        }
-        visit[node] = false;
+        return dp[end];
     }
+
+    static class NodeProb {
+        public int node;
+        public double prob;
+
+        public NodeProb(int node, double prob) {
+            this.node = node;
+            this.prob = prob;
+        }
+    }
+
 
 }
