@@ -29,7 +29,7 @@ public class P437Test {
         n4.left = n7;
         n4.right = n8;
         n5.right = n9;
-        int count = new P437().pathSum(n1,8);
+        int count = new P437().pathSum2(n1,8);
         Assert.assertEquals(3,count);
     }
 }
