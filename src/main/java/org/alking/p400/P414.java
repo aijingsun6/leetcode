@@ -7,38 +7,25 @@ public class P414 {
 
     public int thirdMax(int[] nums) {
 
-        if(nums == null || nums.length == 0){
-
+        if (nums == null || nums.length == 0) {
             return -1;
         }
-        PriorityQueue<Integer> queue = new PriorityQueue<>(3);
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
         HashSet<Integer> set = new HashSet<>();
-        for( int v : nums){
-
-            if(set.contains(v)){
-               continue;
+        int max = Integer.MIN_VALUE;
+        for (int n : nums) {
+            if (!set.contains(n)) {
+                max = Math.max(max, n);
+                queue.offer(n);
+                if (queue.size() > 3) {
+                    queue.poll();
+                }
+                set.add(n);
             }
-
-            set.add(v);
-            if(queue.size() < 3){
-                queue.add(v);
-            }else if(queue.peek() < v){
-
-                queue.poll();
-                queue.add(v);
-            }
-
         }
-
-        if(queue.size() < 3){
-
-            while (queue.size() > 1){
-                queue.poll();
-            }
-            return queue.poll();
+        if (queue.size() < 3) {
+            return max;
         }
-
         return queue.peek();
-
     }
 }
