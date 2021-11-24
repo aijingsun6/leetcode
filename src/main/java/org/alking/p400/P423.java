@@ -1,6 +1,5 @@
 package org.alking.p400;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,31 +23,13 @@ public class P423 {
     public static final int[] NUMS = new int[]{
             1, 3, 5, 7, 9
     };
-
-
-    private boolean decrementWithCheck(String s) {
-        char[] arr = s.toCharArray();
-        for (int i = 0; i < arr.length; i++) {
-            int idx = arr[i] - 'a';
-            if (bucket[idx] > 0) {
-                bucket[idx]--;
-            } else {
-                for (int j = 0; j < i; j++) {
-                    bucket[arr[j] - 'a']++;
-                }
-                return false;
-            }
-        }
-        return true;
-    }
-
     private void decrement(String s) {
         for (char c : s.toCharArray()) {
             bucket[c - 'a']--;
         }
     }
 
-    ArrayDeque<Integer> result = new ArrayDeque<>();
+    ArrayList<Integer> result = new ArrayList<>();
     int[] bucket = new int[26];
     int count = 0;
 
@@ -74,30 +55,26 @@ public class P423 {
                 n = 6;
             } else if (bucket['g' - 'a'] > 0) {
                 n = 8;
+            } else if(bucket['f'-'a'] > 0){
+                n = 5;
+            } else if(bucket['o'-'a'] > 0){
+                n = 1;
+            } else if(bucket['r'-'a'] >0){
+                n = 3;
+            } else if(bucket['i'-'a']>0){
+                n = 9;
+            } else if(bucket['s'-'a'] >0){
+                n = 7;
             }
-            if (n >= 0) {
-                String ns = ARRAY[n];
-                decrement(ns);
-                count -= ns.length();
-                result.addLast(n);
-                continue;
-
-            } else {
-                for (int i : NUMS) {
-                    String ns = ARRAY[i];
-                    if(decrementWithCheck(ns)){
-                        count -= ns.length();
-                        result.addLast(i);
-                        break;
-                    }
-                }
-
-            }
+            String ns = ARRAY[n];
+            decrement(ns);
+            count -= ns.length();
+            result.add(n);
         }
-        ArrayList<Integer> list = new ArrayList<>(result);
-        Collections.sort(list);
+
+        Collections.sort(result);
         StringBuilder sb = new StringBuilder();
-        for (int i : list) {
+        for (int i : result) {
             sb.append(i);
         }
         return sb.toString();
