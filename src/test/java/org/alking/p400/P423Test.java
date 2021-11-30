@@ -18,7 +18,7 @@ public class P423Test {
         Assert.assertEquals("45",result);
 
         s = "zeroonetwothreefourfivesixseveneightnine";
-        result = p423.originalDigits(s);
+        result = p423.originalDigits2(s);
         Assert.assertEquals("0123456789",result);
     }
 }

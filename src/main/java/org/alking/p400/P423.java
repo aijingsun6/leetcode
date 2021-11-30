@@ -23,6 +23,7 @@ public class P423 {
     public static final int[] NUMS = new int[]{
             1, 3, 5, 7, 9
     };
+
     private void decrement(String s) {
         for (char c : s.toCharArray()) {
             bucket[c - 'a']--;
@@ -55,15 +56,15 @@ public class P423 {
                 n = 6;
             } else if (bucket['g' - 'a'] > 0) {
                 n = 8;
-            } else if(bucket['f'-'a'] > 0){
+            } else if (bucket['f' - 'a'] > 0) {
                 n = 5;
-            } else if(bucket['o'-'a'] > 0){
+            } else if (bucket['o' - 'a'] > 0) {
                 n = 1;
-            } else if(bucket['r'-'a'] >0){
+            } else if (bucket['r' - 'a'] > 0) {
                 n = 3;
-            } else if(bucket['i'-'a']>0){
+            } else if (bucket['i' - 'a'] > 0) {
                 n = 9;
-            } else if(bucket['s'-'a'] >0){
+            } else if (bucket['s' - 'a'] > 0) {
                 n = 7;
             }
             String ns = ARRAY[n];
@@ -80,5 +81,34 @@ public class P423 {
         return sb.toString();
     }
 
+
+    public String originalDigits2(String s) {
+        int[] bucket = new int[26 + 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            bucket[s.charAt(i)]++;
+        }
+        int[] cnt = new int[10];
+        cnt[0] = bucket['z'];
+        cnt[2] = bucket['w'];
+        cnt[4] = bucket['u'];
+        cnt[6] = bucket['x'];
+        cnt[8] = bucket['g'];
+
+        cnt[3] = bucket['h'] - cnt[8];
+        cnt[5] = bucket['f'] - cnt[4];
+        cnt[7] = bucket['s'] - cnt[6];
+
+        cnt[1] = bucket['o'] - cnt[0] - cnt[2] - cnt[4];
+
+        cnt[9] = bucket['i'] - cnt[5] - cnt[6] - cnt[8];
+
+        StringBuffer ans = new StringBuffer();
+        for (int i = 0; i < 10; ++i) {
+            for (int j = 0; j < cnt[i]; ++j) {
+                ans.append((char) (i + '0'));
+            }
+        }
+        return ans.toString();
+    }
 
 }
