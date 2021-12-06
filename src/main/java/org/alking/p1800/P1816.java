@@ -8,38 +8,16 @@ import java.util.ArrayList;
 public class P1816 {
 
     public String truncateSentence(String s, int k) {
-        StringBuilder sb = new StringBuilder();
-        int start = -1;
+        final int N = s.length();
         int count = 0;
-        char[] array = s.toCharArray();
-        for (int i = 0; i < array.length; i++) {
-            char c = array[i];
-            if (c == ' ') {
-                if (start != -1) {
-                    String add = new String(array, start, i - start);
-                    if(count == 0){
-                        sb.append(add);
-                    }else{
-                        sb.append(" ").append(add);
-                    }
-                    count ++;
-                    start = -1;
-                }
-            } else if (start == -1) {
-                start = i;
+        for (int i = 0; i < N; i++) {
+            if (s.charAt(i) == ' ') {
+                count++;
             }
             if (count == k) {
-                return sb.toString();
+                return s.substring(0, i);
             }
         }
-        if (start != -1) {
-            String add = new String(array, start, array.length-start);
-            if(count == 0){
-                sb.append(add);
-            }else{
-                sb.append(" ").append(add);
-            }
-        }
-        return sb.toString();
+        return s;
     }
 }
