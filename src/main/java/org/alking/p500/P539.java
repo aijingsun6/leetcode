@@ -13,21 +13,20 @@ public class P539 {
                 return 0;
             }
         }
-        int prev = -1;
         int min = Integer.MAX_VALUE;
-        int first = 0;
-        int last = 0;
+        int first = -1;
+        int last = -1;
         for (int i = 0; i < bucket.length; i++) {
             if (bucket[i] == 0) {
                 continue;
             }
-            if (prev == -1) {
-                prev = i;
+            if (last == -1) {
+                last = i;
                 first = i;
                 continue;
             }
-            min = Math.min(min, i - prev);
-            prev = i;
+            min = Math.min(min, i - last);
+            last = i;
             last = i;
 
         }
