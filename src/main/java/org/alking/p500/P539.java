@@ -27,7 +27,6 @@ public class P539 {
             }
             min = Math.min(min, i - last);
             last = i;
-            last = i;
 
         }
         min = Math.min(min, Math.abs(first + 60*24 - last));
