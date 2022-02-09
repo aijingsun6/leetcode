@@ -8,10 +8,8 @@ public class P2006 {
             bucket[v]++;
         }
         int acc = 0;
-        for (int i = 0; i < 101; i++) {
-            if (bucket[i] > 0 && i - k > 0 && bucket[i - k] > 0) {
-                acc += bucket[i] * bucket[i - k];
-            }
+        for (int i = k + 1; i < 101; i++) {
+            acc += bucket[i] * bucket[i - k];
         }
         return acc;
     }
