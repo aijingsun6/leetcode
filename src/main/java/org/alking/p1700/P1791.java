@@ -15,4 +15,20 @@ public class P1791 {
         }
         return -1;
     }
+
+
+    public int findCenter2(int[][] edges) {
+
+        int[] p1 = edges[0];
+        int[] p2 = edges[1];
+
+        if (p1[0] == p2[0] || p1[0] == p2[1]) {
+            return p1[0];
+        }
+        if (p1[1] == p2[0] || p1[1] == p2[1]) {
+            return p1[1];
+        }
+
+        return -1;
+    }
 }
