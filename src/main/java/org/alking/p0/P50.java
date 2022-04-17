@@ -1,39 +1,28 @@
 package org.alking.p0;
 
+import java.util.HashMap;
+
 public class P50 {
 
     public double myPow(double x, int n) {
-        if (x == 0) {
-            return x;
+        this.memo.clear();
+        this.memo.put(0, 1.0d);
+        if(n > 0){
+            return pow(x,n);
         }
-        if (n == 0) {
-            return 1;
-        }
-        boolean neg = false;
-        long m = n;
-        if (m < 0) {
-            neg = true;
-            m = -m;
-        }
-        double result = pow(x, m);
-        if (neg) {
-            return 1 / result;
-        }
-        return result;
+        return  1.0d / pow(x,-n);
     }
 
-    private double pow(double x, long n) {
+    private HashMap<Integer, Double> memo = new HashMap<>();
 
-        double result = 1.0d;
-        double acc = x;
-        while (n > 0) {
-
-            if ((n & 1) > 0) {
-                result = result * acc;
-            }
-            n = n >> 1;
-            acc = acc * acc;
+    private double pow(double x, int n) {
+        if (memo.containsKey(n)) {
+            return memo.get(n);
         }
+        double v = pow(x, n / 2);
+        v = v * v;
+        double result = n % 2 == 0 ? v : v * x;
+        memo.put(n, result);
         return result;
     }
 
