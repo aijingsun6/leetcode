@@ -5,18 +5,44 @@ import java.util.PriorityQueue;
 public class P1005 {
 
     public int largestSumAfterKNegations(int[] A, int K) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-        for (int i = 0; i < A.length; i++) {
-            queue.add(A[i]);
+        if (A == null || A.length < 1) {
+            return 0;
         }
-        for (int i = 0; i < K; i++) {
-            queue.add(-queue.poll());
-        }
+
+        PriorityQueue<Integer> negQ = new PriorityQueue<>();
+
+        int min = Integer.MAX_VALUE;
+
         int sum = 0;
-        for (int v : queue) {
-            sum += v;
+
+        for (int v : A) {
+
+            if (v < 0) {
+                negQ.add(v);
+            } else {
+                sum += v;
+            }
+            min = Math.min(min, Math.abs(v));
         }
-        return sum;
+
+        if (K < negQ.size()) {
+            for (int i = 0; i < K; i++) {
+                sum -= negQ.poll();
+            }
+            while (!negQ.isEmpty()) {
+                sum += negQ.poll();
+            }
+            return sum;
+        }
+
+        while (!negQ.isEmpty()) {
+            sum -= negQ.poll();
+            K--;
+        }
+        if (K % 2 == 0) {
+            return sum;
+        }
+        return sum - min * 2;
     }
 
 }

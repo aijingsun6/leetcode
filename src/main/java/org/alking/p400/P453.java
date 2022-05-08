@@ -1,17 +1,20 @@
 package org.alking.p400;
 
-import java.util.Arrays;
-
 public class P453 {
 
 
     public int minMoves(int[] nums) {
-        Arrays.sort(nums);
-        int s = 0;
-        for (int i = 0; i < nums.length; i++) {
-            s += nums[i] - nums[0];
+        if (nums == null || nums.length < 1) {
+            return 0;
         }
-        return s;
-
+        long sum = 0;
+        int min = nums[0];
+        int v;
+        for (int i = 0; i < nums.length; i++) {
+            v = nums[i];
+            min = Math.min(min, v);
+            sum += v;
+        }
+        return (int) (sum - min * nums.length);
     }
 }

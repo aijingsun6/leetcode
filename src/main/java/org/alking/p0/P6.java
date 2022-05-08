@@ -2,9 +2,42 @@ package org.alking.p0;
 
 public class P6 {
 
-    public String convert(String s, int numRows) {
+    public String convert2(String s, int numRows) {
 
         if(numRows < 2){
+            return s;
+        }
+        StringBuilder sb = new StringBuilder();
+        final int gap = numRows * 2 - 2;
+        final int N = s.length();
+        for (int r = 0; r < numRows; r++) {
+            if (r == 0 || r == numRows - 1) {
+                int start = r;
+                while (start < N) {
+                    sb.append(s.charAt(start));
+                    start += gap;
+                }
+            } else {
+                int s1 = r;
+                int s2 = gap - r;
+                while (s1 < N || s2 < N){
+                    if(s1 < N){
+                        sb.append(s.charAt(s1));
+                    }
+                    if(s2 < N){
+                        sb.append(s.charAt(s2));
+                    }
+                    s1 += gap;
+                    s2 += gap;
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    public String convert(String s, int numRows) {
+
+        if (numRows < 2) {
             return s;
         }
 

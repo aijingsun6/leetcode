@@ -1,6 +1,8 @@
 package org.alking.p500;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class P594 {
 
@@ -43,5 +45,22 @@ public class P594 {
             cnt = 1;
         }
         return res;
+    }
+
+    public int findLHS2(int[] nums) {
+
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int n : nums){
+            map.put(n, map.getOrDefault(n,0)+1);
+        }
+        int max = 0;
+        for(Map.Entry<Integer,Integer> e: map.entrySet()){
+            int k = e.getKey();
+            int n = Math.max( map.getOrDefault(k-1,0),map.getOrDefault(k+1,0));
+            if(n > 0){
+                max = Math.max(max,n + e.getValue());
+            }
+        }
+        return max;
     }
 }

@@ -7,31 +7,26 @@ public class P747 {
         if (nums == null || nums.length < 2) {
             return 0;
         }
-        int max1;
-        int max2;
-        int maxIdx;
-        if (nums[0] < nums[1]) {
-            max1 = nums[1];
-            max2 = nums[0];
-            maxIdx = 1;
-        } else {
-            max1 = nums[0];
-            max2 = nums[1];
-            maxIdx = 0;
-        }
 
-        for (int idx = 2; idx < nums.length; idx++) {
-            if (nums[idx] > max1) {
-                max2 = max1;
-                max1 = nums[idx];
-                maxIdx = idx;
-            } else if (nums[idx] > max2) {
-                max2 = nums[idx];
+        // max[0] > max[1]
+        int[] max = new int[2];
+        int[] idx = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+
+            int v = nums[i];
+            if (v <= max[1]) {
+                continue;
             }
+            if (v <= max[0]) {
+                max[1] = v;
+                idx[1] = i;
+                continue;
+            }
+            max[1] = max[0];
+            max[0] = v;
+            idx[1] = idx[0];
+            idx[0] = i;
         }
-        if (max2 * 2 > max1) {
-            return -1;
-        }
-        return maxIdx;
+        return max[1] * 2 <= max[0] ? idx[0] : -1;
     }
 }

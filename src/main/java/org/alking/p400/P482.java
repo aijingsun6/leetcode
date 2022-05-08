@@ -20,10 +20,35 @@ public class P482 {
 
         }
         int length = idx;
-        if (idx > 0 && arr[idx-1] == '-') {
+        if (idx > 0 && arr[idx - 1] == '-') {
             length = idx - 1;
         }
         String s = new String(arr, 0, length);
         return new StringBuffer(s).reverse().toString().toUpperCase();
+    }
+
+    public String licenseKeyFormatting2(String s, int k) {
+
+        int idx = 0;
+        StringBuilder sb = new StringBuilder();
+        final int N = s.length();
+        for (int i = N - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            if (c != '-') {
+                sb.append(Character.toUpperCase(c));
+                idx++;
+                if (idx % k == 0) {
+                    sb.append('-');
+                }
+            }
+        }
+        String r = sb.reverse().toString();
+        if(r.length() < 1){
+            return "";
+        }
+        if(r.charAt(0) == '-'){
+            return r.substring(1);
+        }
+        return r;
     }
 }

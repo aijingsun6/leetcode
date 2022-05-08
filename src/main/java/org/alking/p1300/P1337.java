@@ -5,44 +5,32 @@ import java.util.Comparator;
 
 public class P1337 {
 
-    public static class LineInfo {
-
-        public int lineNum;
-
-        public int armNum;
-
-        public LineInfo(int lineNum, int armNum) {
-            this.lineNum = lineNum;
-            this.armNum = armNum;
-        }
-    }
-
     public int[] kWeakestRows(int[][] mat, int k) {
 
-        LineInfo[] infos = new LineInfo[mat.length];
-        for(int i = 0 ;i < mat.length;i++){
+        int[][] infos = new int[mat.length][];
+        for (int i = 0; i < mat.length; i++) {
             int sum = 0;
-            for(int j = 0; j < mat[i].length;j++){
+            for (int j = 0; j < mat[i].length; j++) {
                 sum += mat[i][j];
             }
-            infos[i] = new LineInfo(i,sum);
+            infos[i] = new int[]{sum, i};
         }
-        Arrays.sort(infos, new Comparator<LineInfo>() {
+        Arrays.sort(infos, new Comparator<int[]>() {
             @Override
-            public int compare(LineInfo o1, LineInfo o2) {
-
-                if(o1.armNum < o2.armNum){
+            public int compare(int[] o1, int[] o2) {
+                if (o1[0] < o2[0]) {
                     return -1;
-                }else if(o1.armNum > o2.armNum){
+                } else if (o1[0] > o2[0]) {
                     return 1;
+                } else {
+                    return o1[1] - o2[1];
                 }
-                return o1.lineNum - o2.lineNum;
             }
         });
 
         int[] result = new int[k];
-        for(int i = 0;i < k; i++){
-            result[i] = infos[i].lineNum;
+        for (int i = 0; i < k; i++) {
+            result[i] = infos[i][1];
         }
         return result;
     }

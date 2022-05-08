@@ -10,5 +10,10 @@ public class P6Test {
         P6 p6 = new P6();
         String s = p6.convert("AB",1);
         Assert.assertEquals("AB",s);
+        s = p6.convert2("PAYPALISHIRING",3);
+        Assert.assertEquals("PAHNAPLSIIGYIR",s);
+
+        s = p6.convert2("A",1);
+        Assert.assertEquals("A",s);
     }
 }
