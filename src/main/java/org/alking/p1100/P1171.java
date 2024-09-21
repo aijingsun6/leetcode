@@ -1,6 +1,6 @@
 package org.alking.p1100;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 
 import java.util.HashMap;
 

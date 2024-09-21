@@ -1,7 +1,7 @@
 package org.alking.p1300;
 
-import org.alking.common.ListNode;
-import org.alking.common.TreeNode;
+import org.alking.leetcode.common.ListNode;
+import org.alking.leetcode.common.TreeNode;
 
 public class P1367 {
 

@@ -1,6 +1,6 @@
 package org.alking.p1700;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 
 public class P1721 {
 

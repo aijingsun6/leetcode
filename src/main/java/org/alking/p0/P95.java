@@ -1,6 +1,6 @@
 package org.alking.p0;
 
-import org.alking.common.TreeNode;
+import org.alking.leetcode.common.TreeNode;
 
 import java.util.Collections;
 import java.util.LinkedList;

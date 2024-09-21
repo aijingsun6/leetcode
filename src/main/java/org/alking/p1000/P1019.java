@@ -1,6 +1,6 @@
 package org.alking.p1000;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 
 import java.util.ArrayDeque;
 

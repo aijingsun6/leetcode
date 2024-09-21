@@ -1,6 +1,6 @@
 package org.alking.p1000;
 
-import org.alking.common.TreeNode;
+import org.alking.leetcode.common.TreeNode;
 
 public class P1022 {
 

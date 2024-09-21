@@ -1,6 +1,6 @@
 package org.alking.offer;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 
 public class O18 {
 

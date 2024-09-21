@@ -1,6 +1,6 @@
 package org.alking.p300;
 
-import org.alking.common.TreeNode;
+import org.alking.leetcode.common.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

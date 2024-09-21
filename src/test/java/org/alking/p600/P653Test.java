@@ -1,6 +1,6 @@
 package org.alking.p600;
 
-import org.alking.common.TreeNode;
+import org.alking.leetcode.common.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 

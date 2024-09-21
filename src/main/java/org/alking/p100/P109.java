@@ -1,7 +1,7 @@
 package org.alking.p100;
 
-import org.alking.common.ListNode;
-import org.alking.common.TreeNode;
+import org.alking.leetcode.common.ListNode;
+import org.alking.leetcode.common.TreeNode;
 
 public class P109 {
 

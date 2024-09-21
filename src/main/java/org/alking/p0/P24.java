@@ -1,6 +1,6 @@
 package org.alking.p0;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 
 public class P24 {
 

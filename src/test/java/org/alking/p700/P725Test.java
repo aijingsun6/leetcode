@@ -1,6 +1,6 @@
 package org.alking.p700;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 package org.alking.p1200;
 
-import org.alking.common.ListNode;
+import org.alking.leetcode.common.ListNode;
 
 /**
  * https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer/
