@@ -1,7 +1,13 @@
 ﻿# leetcode
 
 ## 1 - 99
+
+| 编号 | 标题                                                                                                     | 难度 | 题解                                                      | 复杂度  |
+|----|--------------------------------------------------------------------------------------------------------|----|---------------------------------------------------------|------|
+| 3  | [无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/) | 中等 | [P3.java](src/main/java/org/alking/leetcode/p0/P3.java) | O(N) |
+
 ## 991 - 1000
-| 编号 | 标题 | 题解 | 单元测试 |
-| --- | --- | --- | --- |
-| 997 | 找到小镇的法官 | [P997.java](src/main/java/org/alking/leetcode/p900/P997.java) | [P997Test.java](src/test/java/org/alking/leetcode/p900/P997Test.java)
+
+| 编号  | 标题                                                           | 难度 | 题解                                                            | 复杂度  |
+|-----|--------------------------------------------------------------|----|---------------------------------------------------------------|------|
+| 997 | [找到小镇的法官](https://leetcode.cn/problems/find-the-town-judge/) | 简单 | [P997.java](src/main/java/org/alking/leetcode/p900/P997.java) | O(N) |
