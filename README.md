@@ -2,10 +2,11 @@
 
 ## 1 - 99
 
-| 编号 | 标题                                                                                                     | 难度 | 题解                                                      | 复杂度 |
-|----|--------------------------------------------------------------------------------------------------------|----|---------------------------------------------------------|--|
-| 2 | [两数相加](https://leetcode.cn/problems/add-two-numbers/description/) | 中等 | [P2.java](src/main/java/org/alking/leetcode/p0/P2.java)| O(Max(M,N))
-| 3  | [无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/) | 中等 | [P3.java](src/main/java/org/alking/leetcode/p0/P3.java) | O(N) |
+| 编号 | 标题                                                                                                     | 难度 | 题解                                                      | 复杂度         |
+|----|--------------------------------------------------------------------------------------------------------|----|---------------------------------------------------------|-------------|
+| 2  | [两数相加](https://leetcode.cn/problems/add-two-numbers/description/)                                      | 中等 | [P2.java](src/main/java/org/alking/leetcode/p0/P2.java) | O(Max(M,N)) 
+| 3  | [无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/) | 中等 | [P3.java](src/main/java/org/alking/leetcode/p0/P3.java) | O(N)        |
+| 5  | [最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/description/)                      | 中等 | [P5.java](src/main/java/org/alking/leetcode/p0/P5.java) | O(N^2)      |
 
 ## 991 - 1000
 
