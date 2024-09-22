@@ -61,6 +61,18 @@ public class ListNode {
         acc.toArray(result);
         return result;
     }
+    public static int[] toValueArray(ListNode head){
+        List<Integer> acc = new LinkedList<>();
+        while (head != null) {
+            acc.add(head.val);
+            head = head.next;
+        }
+        int[] result = new int[acc.size()];
+        for(int i = 0; i < acc.size(); i++){
+            result[i] = acc.get(i);
+        }
+        return result;
+    }
 
     public ListNode reverseList(ListNode head) {
 

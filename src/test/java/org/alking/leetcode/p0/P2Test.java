@@ -8,18 +8,23 @@ public class P2Test {
 
     @Test
     public void test(){
-        ListNode l1 = new ListNode(2);
-        l1.next = new ListNode(4);
-        l1.next.next = new ListNode(3);
-
-        ListNode l2 = new ListNode(5);
-        l2.next = new ListNode(6);
-        l2.next.next = new ListNode(4);
-
+        ListNode l1 = ListNode.parseListNode(new int[]{2,4,3});
+        ListNode l2 = ListNode.parseListNode(new int[]{5,6,4});
         P2 p2 = new P2();
-        ListNode n = p2.addTwoNumbers(l1,l2);
-        Assert.assertEquals(7,n.val);
-        Assert.assertEquals(0,n.next.val);
-        Assert.assertEquals(8,n.next.next.val);
+        ListNode r = p2.addTwoNumbers(l1, l2);
+        int[] expect = new int[]{7,0,8};
+        Assert.assertArrayEquals(expect, ListNode.toValueArray(r));
+
+        l1 = ListNode.parseListNode(new int[]{0});
+        l2 = ListNode.parseListNode(new int[]{0});
+        r = p2.addTwoNumbers(l1, l2);
+        expect = new int[]{0};
+        Assert.assertArrayEquals(expect, ListNode.toValueArray(r));
+
+        l1 = ListNode.parseListNode(new int[]{9,9,9,9,9,9,9});
+        l2 = ListNode.parseListNode(new int[]{9,9,9,9});
+        r = p2.addTwoNumbers(l1, l2);
+        expect = new int[]{8,9,9,9,0,0,0,1};
+        Assert.assertArrayEquals(expect, ListNode.toValueArray(r));
     }
 }

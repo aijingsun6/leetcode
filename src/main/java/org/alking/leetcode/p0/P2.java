@@ -6,40 +6,31 @@ public class P2 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
         int carry = 0;
-        ListNode head = null;
-        ListNode cur = null;
-        while (carry > 0 || l1 != null || l2 != null){
+        while (l1 != null || l2 != null) {
 
-
-            int v = carry;
-            if(l1 != null){
-                v += l1.val;
+            int sum = carry;
+            if (l1 != null) {
+                sum += l1.val;
                 l1 = l1.next;
             }
-
-            if(l2 != null){
-                v += l2.val;
+            if (l2 != null) {
+                sum += l2.val;
                 l2 = l2.next;
             }
-
-            carry = v / 10;
-            v = v % 10;
-            ListNode n  = new ListNode(v);
-
-            if(head == null){
-                head = n;
-            }
-            if(cur == null){
-                cur = n;
-            }else {
-                cur.next = n;
-                cur = n;
-            }
-
+            ListNode n = new ListNode(sum % 10);
+            carry = sum / 10;
+            tail.next = n;
+            tail = tail.next;
         }
-        return head;
-
+        if (carry > 0) {
+            ListNode n = new ListNode(carry);
+            tail.next = n;
+            tail = tail.next;
+        }
+        return dummy.next;
     }
 
 }
