@@ -1,4 +1,4 @@
-package org.alking.graph;
+package org.alking.leetcode.graph;
 
 import org.junit.Assert;
 import org.junit.Test;
